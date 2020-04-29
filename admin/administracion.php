@@ -93,10 +93,127 @@ SESSION_START();
      
  
 </section>
-</div>
-         
+        
+<!--PANEL PARA PACTAR-->
 
-<?php 
+<section class="padre">
+
+<div  class="alert alert-info"style="position:inherit;">Panel Pactar</div>
+<div class="alert alert-info" style= "position:inherit;padding-top: 15px; padding-bottom: 55px;width:695px;">
+<a href="#" id="show3">Click aqui</a>
+        <div id="elementpactar" style="display: none;">
+        <div id="close3"><a href="#" id="hide3">Volver Atras</a></div>
+<form action="../admin/administracion.php" method="POST" class="form-inline"style="margin:0;float:left;" >
+
+   <input type="text" class="form-control" name="identificacion_pacto" id="identificacion_pacto" placeholder="Identificacion a pactar"style="margin:0;float:left;width:190px;height:38px;"required>
+   <input type="date" class="form-control" name="fecha_asignado" id="fecha_asignado" placeholder="Fecha" style="float:left;width:160px;height:38px;"required>
+   
+   <input type="time" class="form-control" name="horario_pac" id="horario_pac" style="float:left;width:120px;height:38px;"required>
+   <input type="text" class="form-control" name="operador" id="operador" placeholder="Operador" style="float:left;width:120px;height:38px;"required>
+     
+     
+     <select class="form-control"  id="lista1" name="lista1"  style="float:left; width:150px;height:38px;">
+            <option value="0">Seleccione CP</option>
+            <option value="1000">1000</option>
+            <option value="1406">1406</option>
+            <option value="1407">1407</option>
+            <option value="1408">1408</option>
+     </select>
+     <select id="select2lista" name="select2lista" style="float:left; width:170px;height:38px;"required></select>
+
+    <select class="form-control" name="estado_pac" id="estado_pac" style="float:left; width:150px;height:38px;">
+            <option value="PACTADO">PACTADO</option>
+            <option value="A-CONFIRMAR">A CONFIRMAR</option>
+            <option value="RECUPERADO">RECUPERADO</option>
+            <option value="RECHAZADA">RECHAZADA</option>
+            <option value="NO-EXISTE-NUMERO">NO EXISTE NUMERO</option>
+            <option value="NO-RESPONDE">NO RESPONDE</option>
+            <option value="TIEMPO-ESPERA">TIEMPO LIMITE ESPERA</option>
+            <option value="SE-MUDO">SE MUDO</option>
+            <option value="YA-RETIRADO">YA RETIRADO</option>
+            <option value="ZONA-PELIGROSA">ZONA PELIGROSA</option>
+            <option value="NO-TUVO-EQUIPO">NO TUVO EQUIPO</option>
+            <option value="N/R-TELEFONO">NO RESPONDE TELEFONO</option>
+            <option value="N/TEL-EQUIVOCADO">TEL EQUIVOCADO</option>
+            <option value="DESHABITADO">DESHABITADO</option>
+            <option value="ROBADO">ROBADO</option>
+            <option value="CONFIRMADO">CONFIRMADO</option>
+            <option value="RELLAMAR">RELLAMAR</option>
+            <option value="NO-COINCIDE-SERIE">NO COINCIDE SERIE</option>
+            <option value="LLAMARA-A-BASE">LLAMARA A BASE</option>
+            <option value="ENTREGARA-EN-BASE">ENTREGARA EN BASE</option>
+     </select>
+        <button type="submit" name="pactar" class="btn btn-info" style="float:left;width:150px;height:36px;">PACTAR</button>
+
+     </form>
+
+       
+       </section>
+
+
+
+<!--PANEL EQUIPOS (a) CONFIRMAR-->
+
+         <section class="padre">
+         <div class="alert alert-info" style="position:inherit;">Equipos a confirmar</div>
+         <div class="alert alert-info" style="position:inherit;width:639px;">
+         <a href="#" id="show1">Click aqui</a>
+        <div id="elementidentificacion" style="display: none;">
+        <div id="close1"><a href="#" id="hide1">Volver Atras</a></div>
+      
+        <form  action="../admin/administracion.php" method="POST" style="margin:0; float:left;">
+      <div class="form-group mx-sm-3 mb-2">
+       <label>Identificación</label>
+         <input type="text" class="form-control"  name="identificacion_retiro" id="identificacion_retiro" placeholder="Identificación" style="width:120px;height:40px" >
+         <button type="submit" name="buscar" class="btn btn-info">Consultar</button>
+         
+      </div>
+      </form>
+      
+      <form  action="../admin/administracion.php" method="POST" style="margin:0; float:left;">
+      <div class="form-group mx-sm-3 mb-2">
+      <label>Nro Orden</label>
+         <input type="text" class="form-control"  name="id_orden" id="id_orden" placeholder="Nro Orden" style="width:120px;height:40px" >
+         <button type="submit" name="buscarorden" class="btn btn-info">Consultar</button>
+       </div>
+        </form>
+      <form  action="../admin/administracion.php" method="POST" style="margin:0; float:left;">
+      
+      <label>Fecha</label>
+         <input type="date" class="form-control"  name="horario_rec" id="horario_rec" placeholder="Fecha" style="width:160px;height:40px" >
+         <button type="submit" name="fecha" class="btn btn-info">Consultar</button>
+
+      </form>
+      
+      
+</section>
+
+
+        
+    <!--reportes EQUIPOS -->
+
+    
+<section class="padre">
+         <div class="alert alert-info" style="position:inherit;">Reporte equipos retirados <br> por recolector</div>
+         <div class="alert alert-info" style="position:inherit;width:597px;">
+         <a href="#" id="show5">Click aqui</a>
+        <div id="elementpactar5" style="display: none;">
+        <div id="close5"><a href="#" id="hide5">Volver Atras</a></div>
+        <form action="../admin/administracion.php" method="POST" class="form-inline" style="float:left;" >
+  <div class="form-group">
+        <label>Recolector:</label>
+        <input type="text" class="form-control" name="reco1" id="reco1" placeholder="Recolector" required style="width:110px;height:36px;">
+        <label>Fecha :</label>
+        <input type="date" class="form-control" name="fecha1" id="fecha1" required style="width:180px;height:36px;">
+         <button type="submit" name="consultando" class="btn btn-info" style="float:left;width:80px;height:36px;">Buscar</button>
+  </div>
+         </form>
+    </div>
+       </section>
+
+</section>
+
+<?php
 if(!isset($_SESSION['administracion'])){ 
   header('location:../login/loginadm.php');
 } if(!isset($_SESSION['administracion'])){
@@ -463,127 +580,6 @@ echo
 
 include("../cerrar_conexion.php");
 }
-
-?>
-<!--PANEL PARA PACTAR-->
-<div class="container">
-<section class="padre">
-
-<div  class="alert alert-info"style="position:inherit;">Panel Pactar</div>
-<div class="alert alert-info" style= "position:inherit;padding-top: 15px; padding-bottom: 55px;width:695px;">
-<a href="#" id="show3">Click aqui</a>
-        <div id="elementpactar" style="display: none;">
-        <div id="close3"><a href="#" id="hide3">Volver Atras</a></div>
-<form action="../admin/administracion.php" method="POST" class="form-inline"style="margin:0;float:left;" >
-
-   <input type="text" class="form-control" name="identificacion_pacto" id="identificacion_pacto" placeholder="Identificacion a pactar"style="margin:0;float:left;width:190px;height:38px;"required>
-   <input type="date" class="form-control" name="fecha_asignado" id="fecha_asignado" placeholder="Fecha" style="float:left;width:160px;height:38px;"required>
-   
-   <input type="time" class="form-control" name="horario_pac" id="horario_pac" style="float:left;width:120px;height:38px;"required>
-   <input type="text" class="form-control" name="operador" id="operador" placeholder="Operador" style="float:left;width:120px;height:38px;"required>
-     
-     
-     <select class="form-control"  id="lista1" name="lista1"  style="float:left; width:150px;height:38px;">
-            <option value="0">Seleccione CP</option>
-            <option value="1000">1000</option>
-            <option value="1406">1406</option>
-            <option value="1407">1407</option>
-            <option value="1408">1408</option>
-     </select>
-     <select id="select2lista" name="select2lista" style="float:left; width:170px;height:38px;"required></select>
-
-    <select class="form-control" name="estado_pac" id="estado_pac" style="float:left; width:150px;height:38px;">
-            <option value="PACTADO">PACTADO</option>
-            <option value="A-CONFIRMAR">A CONFIRMAR</option>
-            <option value="RECUPERADO">RECUPERADO</option>
-            <option value="RECHAZADA">RECHAZADA</option>
-            <option value="NO-EXISTE-NUMERO">NO EXISTE NUMERO</option>
-            <option value="NO-RESPONDE">NO RESPONDE</option>
-            <option value="TIEMPO-ESPERA">TIEMPO LIMITE ESPERA</option>
-            <option value="SE-MUDO">SE MUDO</option>
-            <option value="YA-RETIRADO">YA RETIRADO</option>
-            <option value="ZONA-PELIGROSA">ZONA PELIGROSA</option>
-            <option value="NO-TUVO-EQUIPO">NO TUVO EQUIPO</option>
-            <option value="N/R-TELEFONO">NO RESPONDE TELEFONO</option>
-            <option value="N/TEL-EQUIVOCADO">TEL EQUIVOCADO</option>
-            <option value="DESHABITADO">DESHABITADO</option>
-            <option value="ROBADO">ROBADO</option>
-            <option value="CONFIRMADO">CONFIRMADO</option>
-            <option value="RELLAMAR">RELLAMAR</option>
-            <option value="NO-COINCIDE-SERIE">NO COINCIDE SERIE</option>
-            <option value="LLAMARA-A-BASE">LLAMARA A BASE</option>
-            <option value="ENTREGARA-EN-BASE">ENTREGARA EN BASE</option>
-     </select>
-        <button type="submit" name="pactar" class="btn btn-info" style="float:left;width:150px;height:36px;">PACTAR</button>
-
-     </form>
-</div>
-       
-       </section>
-</div>
-</div>
-
-<!--PANEL EQUIPOS (a) CONFIRMAR-->
-<div class="container"><div>
-         <section class="padre">
-         <div class="alert alert-info" style="position:inherit;">Equipos a confirmar</div>
-         <div class="alert alert-info" style="position:inherit;width:639px;">
-         <a href="#" id="show1">Click aqui</a>
-        <div id="elementidentificacion" style="display: none;">
-        <div id="close1"><a href="#" id="hide1">Volver Atras</a></div>
-      
-        <form  action="../admin/administracion.php" method="POST" style="margin:0; float:left;">
-      <div class="form-group mx-sm-3 mb-2">
-       <label>Identificación</label>
-         <input type="text" class="form-control"  name="identificacion_retiro" id="identificacion_retiro" placeholder="Identificación" style="width:120px;height:40px" >
-         <button type="submit" name="buscar" class="btn btn-info">Consultar</button>
-         
-      </div>
-      </form>
-      
-      <form  action="../admin/administracion.php" method="POST" style="margin:0; float:left;">
-      <div class="form-group mx-sm-3 mb-2">
-      <label>Nro Orden</label>
-         <input type="text" class="form-control"  name="id_orden" id="id_orden" placeholder="Nro Orden" style="width:120px;height:40px" >
-         <button type="submit" name="buscarorden" class="btn btn-info">Consultar</button>
-       </div>
-        </form>
-      <form  action="../admin/administracion.php" method="POST" style="margin:0; float:left;">
-      
-      <label>Fecha</label>
-         <input type="date" class="form-control"  name="horario_rec" id="horario_rec" placeholder="Fecha" style="width:160px;height:40px" >
-         <button type="submit" name="fecha" class="btn btn-info">Consultar</button>
-
-      </form>
-      
-      
-</section>
-
-
-        
-    <!--reportes EQUIPOS -->
-
-    
-<section class="padre">
-         <div class="alert alert-info" style="position:inherit;">Reporte equipos retirados <br> por recolector</div>
-         <div class="alert alert-info" style="position:inherit;width:597px;">
-         <a href="#" id="show5">Click aqui</a>
-        <div id="elementpactar5" style="display: none;">
-        <div id="close5"><a href="#" id="hide5">Volver Atras</a></div>
-        <form action="../admin/administracion.php" method="POST" class="form-inline" style="float:left;" >
-  <div class="form-group">
-        <label>Recolector:</label>
-        <input type="text" class="form-control" name="reco1" id="reco1" placeholder="Recolector" required style="width:110px;height:36px;">
-        <label>Fecha :</label>
-        <input type="date" class="form-control" name="fecha1" id="fecha1" required style="width:180px;height:36px;">
-         <button type="submit" name="consultando" class="btn btn-info" style="float:left;width:80px;height:36px;">Buscar</button>
-  </div>
-         </form>
-    </div>
-       </section>
-
-</section>
-<?php
 if(!isset($_SESSION['administracion'])){ 
   header('location:../login/loginadm.php');
 } if(!isset($_SESSION['administracion'])){
@@ -975,6 +971,7 @@ AND horario_rec LIKE '%$fecha1%'");
 include("../cerrar_conexion.php");
  }
 ?>
+
   <script src="../js/menu.js"></script> 
   
   </body>
