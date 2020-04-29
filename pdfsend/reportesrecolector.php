@@ -12,7 +12,7 @@ if(isset($_POST['reporte']))
 $id_recolector=$_POST['id_recolector'];
 $fecha=$_POST['fecha'];
 
-$sql="SELECT DISTINCT empresa,estado_rec, id_recolector_2, horario_rec, identificacion, serie, tarjeta, equipo, nombre_cliente, cable_hdmi, cable_av, fuente, control_1,password_rec from express WHERE id_recolector_2='$id_recolector' AND horario_rec LIKE '%$fecha%' UNION SELECT empresa,password_rec,estado_rec, id_recolector_2, horario_rec, identificacion, serie, tarjeta, equipo, nombre_cliente, cable_hdmi, cable_av, fuente, control_1 FROM autorizar WHERE id_recolector_2='$id_recolector' AND horario_rec LIKE '%$fecha%'";
+$sql="SELECT DISTINCT empresa,password_rec,estado_rec, id_recolector_2, horario_rec, identificacion, serie, tarjeta, equipo, nombre_cliente, cable_hdmi, cable_av, fuente, control_1 from express WHERE id_recolector_2='$id_recolector' AND horario_rec LIKE '%$fecha%' UNION SELECT empresa,password_rec,estado_rec, id_recolector_2, horario_rec, identificacion, serie, tarjeta, equipo, nombre_cliente, cable_hdmi, cable_av, fuente, control_1 FROM autorizar WHERE id_recolector_2='$id_recolector' AND horario_rec LIKE '%$fecha%'";
 
 //$res=mysqli_query($conn,$sql) or $_SESSION['Mysqli_Error'] = (mysqli_error($conn));
 
@@ -155,6 +155,7 @@ if($row= $variable->fetch_array())
 // proximo hash 
 
 }
+
 
 }
 
