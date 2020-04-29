@@ -1,6 +1,11 @@
 <?php
 //include 'conexion.php';
 SESSION_START();
+
+if(!isset($_SESSION['administracion'])){ 
+  header('location:../login/loginadm.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

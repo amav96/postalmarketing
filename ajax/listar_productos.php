@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 <?php
 	
 	/* Connect To Database*/
@@ -86,7 +87,7 @@ if($action == 'ajax'){
 																											  data-control_1="<?php echo $control_1?>"
 																											  data-id="<?php echo $id;?>">
 																											  
-								<i class="material-icons" data-toggle="tooltip" title="Editar" >&#xE254;</i></a>
+																											  <i class="fas fa-arrow-alt-circle-up">Recuperar</i></a>
 								
 								
                     		</td>

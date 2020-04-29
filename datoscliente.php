@@ -182,7 +182,7 @@ $(function(){
 				<div id="custom-search-input" style="position:inherit;">
                             <div class="input-group col-md-12" style="position:inherit;">
                             
-                                <input type="text" class="form-control" placeholder="Buscar"  id="q" onkeyup="load(1);" style="position:inherit;"/>
+                                <input type="text" class="form-control" placeholder="Buscar"  id="q" style="position:inherit;"/>
                                 <span class="input-group-btn">
                                     <button class="btn btn-info" type="button" onclick="load(1);">
                                         <span class="glyphicon glyphicon-search"></span>
@@ -192,7 +192,7 @@ $(function(){
                 </div>
                 <br>
                 <form action="enviarcliente.php" method="POST" >
-	<button class="btn btn-primary mb-2" style="margin:;float:left;">¡Enviar cupón a cliente!</button>
+	<button class="btn btn-primary mb-2" style="margin:;float:left;">Enviar cupon a cliente</button>
 	</form>
   
 			</div>

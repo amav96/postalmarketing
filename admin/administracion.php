@@ -9,9 +9,7 @@ SESSION_START();
   <meta charset="UTF-8">
   <title>PostalMarketing</title>
     <!--metodo para hace la pagina responsive-->
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
-
-  <!-- vinculacion con estilo css -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <script
 	src="https://code.jquery.com/jquery-3.3.1.min.js"
 	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -38,6 +36,7 @@ SESSION_START();
         <li class="menu__item"><a class="menu__link" href="../index.php">INICIO</a></li>
         <li class="menu__item"><a class="menu__link select" href="../admin/administracion.php">PANEL</a></li>
         <li class="menu__item"><a class="menu__link" href="../admin/xfiltrox.php">FILTRO</a></li>
+        <li class="menu__item"><a class="menu__link" href="../admin/reportes.php">REPORTES</a></li>
         <li class="menu__item"><a class="menu__link" href="../cerrar_sesion.php">CERRAR SESION</a></li>
       </ul>
     </nav>
@@ -53,14 +52,14 @@ SESSION_START();
       <div class="form-group mx-sm-3 mb-2">
       
          <input type="text" class="form-control"  name="identificacionae" id="identificacionae" placeholder="Identificación" style="width:120px;height:40px">
-         <button type="submit" name="identificacionaee" id="identificacionae" class="btn btn-info">Buscar</button>
+         <button type="submit" name="identificacionaee" id="identificacionae" class="btn btn-info"><i class="fas fa-search"></i></button>
 </div>
     </form>
         <form  action="../admin/administracion.php" method="POST" style="margin:0; float:left;">
         <div class="form-group mx-sm-3 mb-2">
          
          <input type="text" class="form-control"  name="emaila" id="emaila" placeholder="email" style="width:100px;height:40px">
-         <button type="submit" name="emailaa" id="emaila" class="btn btn-info">Buscar</button>
+         <button type="submit" name="emailaa" id="emaila" class="btn btn-info"><i class="fas fa-search"></i></button>
       </div>
 
     </form>
@@ -68,7 +67,7 @@ SESSION_START();
     <div class="form-group mx-sm-3 mb-2">
     
          <input type="date" class="form-control"  name="fechaconfirmadosa" id="fechaconfirmadosa" placeholder=" Fecha" style="width:170px;height:40px">
-         <button type="submit" name="fechaconfirmadosaa" id="fechaconfirmadosa" class="btn btn-info">Buscar</button>
+         <button type="submit" name="fechaconfirmadosaa" id="fechaconfirmadosa" class="btn btn-info"><i class="fas fa-search"></i></button>
       </div>
 
     </form>
@@ -77,14 +76,14 @@ SESSION_START();
       <div class="form-group mx-sm-3 mb-2">
       
          <input type="text" class="form-control"  name="seriea" id="seriea" placeholder="Serie" style="width:120px;height:40px">
-         <button type="submit" name="serieaa" id="seriea" class="btn btn-info">Buscar</button>
+         <button type="submit" name="serieaa" id="seriea" class="btn btn-info"><i class="fas fa-search"></i></button>
 </div>
     </form>
         <form  action="../admin/administracion.php" method="POST" style="margin:0; float:left;">
         <div class="form-group mx-sm-3 mb-2">
          
          <input type="text" class="form-control"  name="ordena" id="ordena" placeholder="orden" style="width:100px;height:40px">
-         <button type="submit" name="ordenaa" id="ordena" class="btn btn-info">Buscar</button>
+         <button type="submit" name="ordenaa" id="ordena" class="btn btn-info"><i class="fas fa-search"></i></button>
       </div>
 
     </form>
@@ -118,6 +117,7 @@ SESSION_START();
             <option value="1406">1406</option>
             <option value="1407">1407</option>
             <option value="1408">1408</option>
+            <option value="1408">1408</option>
      </select>
      <select id="select2lista" name="select2lista" style="float:left; width:170px;height:38px;"required></select>
 
@@ -143,7 +143,7 @@ SESSION_START();
             <option value="LLAMARA-A-BASE">LLAMARA A BASE</option>
             <option value="ENTREGARA-EN-BASE">ENTREGARA EN BASE</option>
      </select>
-        <button type="submit" name="pactar" class="btn btn-info" style="float:left;width:150px;height:36px;">PACTAR</button>
+        <button type="submit" name="pactar" class="btn btn-info" style="float:left;"><i class="far fa-check-square"></i></i></button>
 
      </form>
 
@@ -165,7 +165,7 @@ SESSION_START();
       <div class="form-group mx-sm-3 mb-2">
        <label>Identificación</label>
          <input type="text" class="form-control"  name="identificacion_retiro" id="identificacion_retiro" placeholder="Identificación" style="width:120px;height:40px" >
-         <button type="submit" name="buscar" class="btn btn-info">Consultar</button>
+         <button type="submit" name="buscar" class="btn btn-info"><i class="fas fa-search"></i></button>
          
       </div>
       </form>
@@ -174,14 +174,14 @@ SESSION_START();
       <div class="form-group mx-sm-3 mb-2">
       <label>Nro Orden</label>
          <input type="text" class="form-control"  name="id_orden" id="id_orden" placeholder="Nro Orden" style="width:120px;height:40px" >
-         <button type="submit" name="buscarorden" class="btn btn-info">Consultar</button>
+         <button type="submit" name="buscarorden" class="btn btn-info"><i class="fas fa-search"></i></button>
        </div>
         </form>
       <form  action="../admin/administracion.php" method="POST" style="margin:0; float:left;">
       
       <label>Fecha</label>
          <input type="date" class="form-control"  name="horario_rec" id="horario_rec" placeholder="Fecha" style="width:160px;height:40px" >
-         <button type="submit" name="fecha" class="btn btn-info">Consultar</button>
+         <button type="submit" name="fecha" class="btn btn-info"><i class="fas fa-search"></i></button>
 
       </form>
       
@@ -205,7 +205,7 @@ SESSION_START();
         <input type="text" class="form-control" name="reco1" id="reco1" placeholder="Recolector" required style="width:110px;height:36px;">
         <label>Fecha :</label>
         <input type="date" class="form-control" name="fecha1" id="fecha1" required style="width:180px;height:36px;">
-         <button type="submit" name="consultando" class="btn btn-info" style="float:left;width:80px;height:36px;">Buscar</button>
+         <button type="submit" name="consultando" class="btn btn-info" style="float:left;"><i class="fas fa-search"></i></button>
   </div>
          </form>
     </div>
@@ -677,7 +677,7 @@ if(isset($_POST['buscar']))
   $identificacion_retiro=$_POST['identificacion_retiro'];
   $acentos = $conn->query("SET NAMES 'utf8'");    
   $query=mysqli_query($conn,"SELECT id_orden,serie,identificacion,tarjeta,
-  horario_rec,estado_rec,cable_hdmi,cable_av,fuente,control_1, id_recolector_2,horario_rec
+  horario_rec,estado_rec,cable_hdmi,cable_av,fuente,control_1, id_recolector_2
    FROM autorizar where identificacion='$identificacion_retiro'");
   
 if($identificacion_retiro=$query)
