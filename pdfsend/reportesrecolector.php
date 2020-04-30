@@ -110,15 +110,16 @@ if($row= $variable->fetch_array())
     $pdf->SetDrawColor(255,255,255);
     $pdf->Ln(0.2);
     
+    
     $pdf->Cell(-8.4,6,'',0,0,'C');
     $pdf->Cell(11,3,$row['serie'],0,0,'C',1);
     $pdf->Cell(14,3,$row['identificacion'],0,0,'C',1);
-    $pdf->Cell(5,3,$row['empresa'],0,0,'C',1);
-    $pdf->Cell(16,3,$row['tarjeta'],0,0,'C',1);
-    $pdf->Cell(4,3,$row['cable_hdmi'],0,0,'C',1);
-    $pdf->Cell(11.5,3,$row['cable_av'],0,0,'C',1);
-    $pdf->Cell(3.5,3,$row['fuente'],0,0,'C',1);
-    $pdf->Cell(7,3,$row['control_1'],0,0,'C',1);
+    $pdf->Cell(6,3,$row['empresa'],0,0,'C',1);
+    $pdf->Cell(16.5,3,$row['tarjeta'],0,0,'C',1);
+    $pdf->Cell(3,3,$row['cable_hdmi'],0,0,'C',1);
+    $pdf->Cell(10.5,3,$row['cable_av'],0,0,'C',1);
+    $pdf->Cell(1.9,3,$row['fuente'],0,0,'C',1);
+    $pdf->Cell(8.9,3,$row['control_1'],0,0,'C',1);
     
    
     
@@ -142,12 +143,12 @@ if($row= $variable->fetch_array())
     $pdf->Cell(-8.4,6,'',0,0,'C');
     $pdf->Cell(11,3,$row['serie'],0,0,'C',1);
     $pdf->Cell(14,3,$row['identificacion'],0,0,'C',1);
-    $pdf->Cell(5,3,$row['empresa'],0,0,'C',1);
-    $pdf->Cell(16,3,$row['tarjeta'],0,0,'C',1);
-    $pdf->Cell(4,3,$row['cable_hdmi'],0,0,'C',1);
-    $pdf->Cell(11.5,3,$row['cable_av'],0,0,'C',1);
-    $pdf->Cell(3.5,3,$row['fuente'],0,0,'C',1);
-    $pdf->Cell(7,3,$row['control_1'],0,0,'C',1);
+    $pdf->Cell(6,3,$row['empresa'],0,0,'C',1);
+    $pdf->Cell(16.5,3,$row['tarjeta'],0,0,'C',1);
+    $pdf->Cell(3,3,$row['cable_hdmi'],0,0,'C',1);
+    $pdf->Cell(10.5,3,$row['cable_av'],0,0,'C',1);
+    $pdf->Cell(1.9,3,$row['fuente'],0,0,'C',1);
+    $pdf->Cell(8.9,3,$row['control_1'],0,0,'C',1);
    
    
     $pdf->Ln(3.5);

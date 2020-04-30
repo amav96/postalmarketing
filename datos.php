@@ -2,7 +2,7 @@
 $conexion=mysqli_connect('localhost','root','','formulario');
 $codigorecolectores=$_POST['codigorecolectores'];
 
-        $sql="SELECT id,codigo_postal,id_recolector /* id[0],codigo_postal[1],id_recolector[2] */
+        $sql="SELECT id,codigo_postal,id_recolector,nombre_recolector /* id[0],codigo_postal[1],id_recolector[2] */
              FROM recolectores WHERE codigo_postal='$codigorecolectores' LIMIT 1";
         
         $result=mysqli_query($conexion,$sql);
@@ -14,4 +14,6 @@ $codigorecolectores=$_POST['codigorecolectores'];
         }
 
         echo $cadena."</select>";
+
+        
 ?>
