@@ -2,6 +2,9 @@
 //include 'conexion.php';
 SESSION_START();
 
+if(!isset($_SESSION['administracion'])){ 
+  header('location:../login/loginadm.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -9,7 +12,10 @@ SESSION_START();
   <meta charset="UTF-8">
   <title>PostalMarketing</title>
     <!--metodo para hace la pagina responsive-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+   <!--fuente para iconos-->
+   
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <script
 	src="https://code.jquery.com/jquery-3.3.1.min.js"
 	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -45,7 +51,9 @@ SESSION_START();
          <br>
          <br>
 <div class="container">
+
          <section class="padre">
+         
          <div class="alert alert-info" style="position:inherit;">Panel Buscador</div>
          <div class="alert alert-info" style="position:inherit;width:673px;">
       <form  action="../admin/administracion.php" method="POST" style="margin:0; float:left;">
@@ -445,8 +453,10 @@ SESSION_START();
     </div>
        </section>
 
-</section>
+      </section>
+    
 
+</div>
 <?php
 if(!isset($_SESSION['administracion'])){ 
   header('location:../login/loginadm.php');

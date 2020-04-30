@@ -45,21 +45,28 @@ if(!isset($_SESSION['administracion'])){
 
 </header>
 <br>
-<div class="container">
+   <div class="container">
 
-       <section class="padre">
-       <form action="../pdfsend/reportesrecolector.php" method="POST">
-  <div class="form-group">
-    <label >Recolector</label>
-    <input type="text" class="form-control" name="id_recolector" id="id_recolector " placeholder="Nro Recolector">
-    <small class="form-text text-muted">Ingrese datos para generar un reporte</small>
-  </div>
-  <div class="form-group">
-    <label>Fecha</label>
-    <input type="date" class="form-control" name="fecha" id="fecha" >
-  </div>
-  <button type="submit" name="reporte" class="btn btn-info">Generar</button>
-</form>
+      <section class="padre">
+       <div class="card">
+         <div class="card-body">
+              <div class="form-group">
+                <form action="../pdfsend/reportesrecolector.php" method="POST">
+              
+                   <label >Recolector</label>
+                     <input type="text" class="form-control" name="id_recolector" id="id_recolector " placeholder="Nro Recolector">
+                       <small class="form-text text-muted">Ingrese datos para generar un reporte</small>
+                </div>
+                  <div class="form-group">
+                   <label>Fecha</label>
+                     <input type="date" class="form-control" name="fecha" id="fecha" >
+                  </div>  
+                    <button type="submit" name="reporte" class="btn btn-info">Generar</button>
+                </form>
+              </div>
+         </div>
+       </div>
+</div>
 
 
       </section>

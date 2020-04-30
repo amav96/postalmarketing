@@ -55,20 +55,32 @@
 						</div>
 						<div class="form-group">
 							<label>Cable HDMI</label>
-							<input type="text" name="edit_cable_hdmi" id="edit_cable_hdmi" class="form-control" required>
+							<select type="text" name="edit_cable_hdmi" id="edit_cable_hdmi" class="form-control" required>
+						    <option value='Si'>Si</option>
+							<option value='No'>No</option>
+							</select>
 						</div>
 						<div class="form-group">
 							<label>Cable AV</label>
-							<input type="text" name="edit_cable_av" id="edit_cable_av" class="form-control" required>
+							<select type="text" name="edit_cable_av" id="edit_cable_av" class="form-control" required>
+							<option value='Si'>Si</option>
+							<option value='No'>No</option>
+							</select>
 						</div>
 						
 						<div class="form-group">
 							<label>Fuente</label>
-							<input type="text" name="edit_fuente" id="edit_fuente" class="form-control" required>
+							<select type="text" name="edit_fuente" id="edit_fuente" class="form-control" required>
+							<option value='Si'>Si</option>
+							<option value='No'>No</option>
+							</select>
 						</div>
 						<div class="form-group">
 							<label>Control</label>
-							<input type="text" name="edit_control_1" id="edit_control_1" class="form-control" required>
+							<select type="text" name="edit_control_1" id="edit_control_1" class="form-control" required>
+							<option value='Si'>Si</option>
+							<option value='No'>No</option>
+							</select>
 						</div>					
 					</div>
 					<div class="modal-footer">

@@ -27,6 +27,7 @@
 				<li class="menu__item"><a class="menu__link" href="nosotros.php">EMPRESA</a></li>
 				<li class="menu__item"><a class="menu__link" href="cobertura.php">COBERTURA</a></li>
 				<li class="menu__item"><a class="menu__link" href="login/loginadm.php">ADMINISTRACIÓN</a></li>
+				<li class="menu__item"><a class="menu__link" href="administraciontotal/index.php">ADMINISTRACIÓN TOTAL</a></li>
 				<li class="menu__item"><a class="menu__link" href="login/logincliente.php">RECOLECTOR</a></li>
 				<li class="menu__item"><a class="menu__link" href="login/logincupon.php">CLIENTE</a></li>
 				

@@ -38,6 +38,7 @@ if(!isset($_SESSION['administracion'])){
         <li class="menu__item"><a class="menu__link" href="../index.php">INICIO</a></li>
         <li class="menu__item"><a class="menu__link" href="../admin/administracion.php">PANEL</a></li>
         <li class="menu__item"><a class="menu__link select" href="../admin/xfiltrox.php" >FILTRO</a></li>
+        <li class="menu__item"><a class="menu__link " href="../admin/reportes.php" >REPORTES</a></li>
         <li class="menu__item"><a class="menu__link" href="../cerrar_sesion.php">CERRAR SESION</a></li>
       </ul>
     </nav>

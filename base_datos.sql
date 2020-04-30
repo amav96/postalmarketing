@@ -77,3 +77,49 @@ ALTER TABLE `tblprod`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+-------------------------EJEMPLO_FACTURA-------------------------
+  CREATE TABLE cliente(
+    id_cli INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_cli VARCHAR(480) NOT NULL
+  );
+  CREATE TABLE recolector(
+    id_rec INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_rec VARCHAR(480) NOT NULL
+  );
+  CREATE TABLE producto(
+    id_pro INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_pro VARCHAR(480) NOT NULL
+  );
+  CREATE TABLE orden(
+    id_ord INT PRIMARY KEY AUTO_INCREMENT,
+    id_cli INT NOT NULL,
+    id_rec INT NOT NULL,
+    serie_ord VARCHAR(20) NOT NULL
+  );
+  CREATE TABLE products_orden(
+    id_po INT PRIMARY KEY AUTO_INCREMENT,
+    id_ord INT NOT NULL,
+    id_pro INT NOT NULL
+  );
+-------------------------INSERTS-------------------------
+  INSERT INTO cliente (nombre_cli) VALUES
+    ('cliente 1'),
+    ('cliente 2'),
+    ('cliente 3'),
+    ('cliente 4')
+  ;
+  INSERT INTO recolector (nombre_rec) VALUES
+    ('empleado 1'),
+    ('empleado 2'),
+    ('empleado 3'),
+    ('empleado 4')
+  ;
+  INSERT INTO producto (nombre_pro) VALUES
+    ('producto 1'),
+    ('producto 2'),
+    ('producto 3'),
+    ('producto 4')
+  ;

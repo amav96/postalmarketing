@@ -154,6 +154,8 @@ $(function(){
            $fila=mysqli_fetch_row($resultados);
       
     echo "
+
+    
      
   
     <table class='table table-responsive'>
