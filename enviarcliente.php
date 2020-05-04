@@ -1,3 +1,11 @@
+<?php
+SESSION_START();
+if(!isset($_SESSION['logged_user'])){
+    header('location:login/logincliente.php');
+  }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

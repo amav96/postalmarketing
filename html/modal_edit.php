@@ -10,39 +10,45 @@
 					</div>
 					<div class="modal-body">					
 						<div class="form-group">
-							<label>Serie</label>
-							<input type="text" name="edit_serie"  id="edit_serie" class="form-control" required readonly>
-							<input type="hidden" name="edit_id" id="edit_id" >
+						<div class="form-group">
+							<label><strong>Cable HDMI</strong></label>
+							<div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="edit_cable_hdmi" name="edit_cable_hdmi" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input" id="edit_cable_hdmi" name="edit_cable_hdmi" value="No">No
+                          </div>
 						</div>
 						<div class="form-group">
-							<label>Nro Orden</label>
-							<input type="text" name="edit_id_orden" id="edit_id_orden" class="form-control"
-							 value="<?php if(isset($_SESSION['id_order']))
-							 { echo $_SESSION['id_order']; } ?>" required>
+							<label><strong>Cable AV</strong></label>
+							<div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="edit_cable_av" name="edit_cable_av" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input" id="edit_cable_av" name="edit_cable_av" value="No">No
+                          </div>
 						</div>
-						<div class="form-group">
-							<label>Fecha</label>
-							<input type="hidden" class="form-control" type="text" name="horario_rec" id="horario_rec"
-							 value="<?php date_default_timezone_set('America/Argentina/Buenos_Aires'); echo date("Y-m-d H:i:s");?>" readonly>
-						</div>
-						<div class="form-group">
-							<label>ID Recolector</label>
-							<input class="form-control" type="text" name="id_recolector_password" id="id_recolector_password" 
-							value="<?php if(isset($_SESSION['id_recolector']))
-							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
-						</div>
-						<div class="form-group">
-							<label>Ingrese nuevamente ID Recolector</label>
-							<input class="form-control" type="text" name="id_recolector_2" id="id_recolector_2" 
-							value="<?php if(isset($_SESSION['id_recolector']))
-							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
 						
+						<div class="form-group">
+							<label><strong>Fuente</strong></label>
+							<div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="edit_fuente" name="edit_fuente" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input" id="edit_fuente" name="edit_fuente" value="No">No
+                          </div>
 						</div>
 						<div class="form-group">
-							<label>Estado</label>
+							<label><strong>Control</strong></label>
+							<div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="edit_control_1" name="edit_control_1" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input" id="edit_control_1" name="edit_control_1" value="No">No
+                          </div>
+						</div>
+						<label><strong>Serie</strong></label>
+							<input type="text" name="edit_serie"  id="edit_serie" class="form-control" placeholder="Serie" required readonly>
+							<input type="hidden" name="edit_id" id="edit_id" > <!-- id que toma para editar el equipo-->
+						</div>
+						<div class="form-group">
+							<label><strong>Estado</strong></label>
 							<select class="form-control" name="edit_estado_rec" id="edit_estado_rec" required>
             <option value="RECUPERADO">RECUPERADO</option>
             <option value="RECHAZADA">RECHAZADA</option>
+			<option value="NO-TUVO-EQUIPO">NO TUVO EQUIPO</option>
             <option value="NO-EXISTE-NUMERO">NO EXISTE NUMERO</option>
             <option value="NO-RESPONDE">NO RESPONDE</option>
             <option value="TIEMPO-ESPERA">TIEMPO LIMITE ESPERA</option>
@@ -50,46 +56,38 @@
             <option value="YA-RETIRADO">YA RETIRADO</option>
             <option value="ZONA-PELIGROSA">ZONA PELIGROSA</option>
             <option value="NO-TUVO-EQUIPO">NO TUVO EQUIPO</option>
-            <option value="N/R-TELEFONO">NO RESPONDE TELEFONO</option>
             <option value="N/TEL-EQUIVOCADO">TEL EQUIVOCADO</option>
-            <option value="DESHABITADO">DESHABITADO</option>
-            <option value="ROBADO">ROBADO</option>
-            <option value="CONFIRMADO">CONFIRMADO</option>
-            <option value="RELLAMAR">RELLAMAR</option>
             <option value="NO-COINCIDE-SERIE">NO COINCIDE SERIE</option>
-            <option value="LLAMARA-A-BASE">LLAMARA A BASE</option>
-            <option value="ENTREGARA-EN-BASE">ENTREGARA EN BASE</option>
+            
 			</select>
 						</div>
 						<div class="form-group">
-							<label>Cable HDMI</label>
-							<select type="text" name="edit_cable_hdmi" id="edit_cable_hdmi" class="form-control" required>
-						    <option value='Si'>Si</option>
-							<option value='No'>No</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label>Cable AV</label>
-							<select type="text" name="edit_cable_av" id="edit_cable_av" class="form-control" required>
-							<option value='Si'>Si</option>
-							<option value='No'>No</option>
-							</select>
+							<label><strong>Nro Orden</strong></label>
+							<input type="text" name="edit_id_orden" id="edit_id_orden" class="form-control"
+							 value="<?php if(isset($_SESSION['id_order']))
+							 { echo $_SESSION['id_order']; } ?>" required>
 						</div>
 						
 						<div class="form-group">
-							<label>Fuente</label>
-							<select type="text" name="edit_fuente" id="edit_fuente" class="form-control" required>
-							<option value='Si'>Si</option>
-							<option value='No'>No</option>
-							</select>
+							
+							<input type="hidden" class="form-control" type="text" name="horario_rec" id="horario_rec"
+							 value="<?php date_default_timezone_set('America/Argentina/Buenos_Aires'); echo date("Y-m-d H:i:s");?>" readonly>
 						</div>
 						<div class="form-group">
-							<label>Control</label>
-							<select type="text" name="edit_control_1" id="edit_control_1" class="form-control" required>
-							<option value='Si'>Si</option>
-							<option value='No'>No</option>
-							</select>
-						</div>					
+							<label><strong>Recolector</strong></label>
+							<input class="form-control" type="text" name="id_recolector_password" id="id_recolector_password" 
+							value="<?php if(isset($_SESSION['logged_user']))
+							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
+						</div>
+						<div class="form-group">
+							
+							<input class="form-control" type="hidden" name="id_recolector_2" id="id_recolector_2" 
+							value="<?php if(isset($_SESSION['logged_user']))
+							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
+						
+						</div>
+						
+											
 					</div>
 					<div class="modal-footer">
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">

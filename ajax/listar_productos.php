@@ -26,17 +26,24 @@ if($action == 'ajax'){
 	//else {echo mysqli_error($con);}
 	//$total_pages = ceil($numrows/$per_page);
 	//consulta principal para recuperar los datos
-        $acentos = $con->query("SET NAMES 'utf8'");
-	$query = mysqli_query($con,"SELECT $campos FROM  $tables where identificacion='$query' or serie='$query'");
-	//recorrer los datos recuperados
-	
-
-
+		$acentos = $con->query("SET NAMES 'utf8'");
 		
-	
-	if ($action=$query){
+		$sql1="SELECT id,serie,id_orden,identificacion,nombre_cliente,direccion,localidad,cable_hdmi,cable_av,fuente,control_1,estado_rec
+		FROM express WHERE 
+		identificacion='$query' or serie='$query'";
+		$resultado = $con->query($sql1);
+		$row = mysqli_num_rows($resultado);
 		
-	?>
+		if($row==0){
+			
+			echo "<div class='alert alert-danger' role='alert'>
+			¡No existe cliente o verifique el dato ingresado!
+		  </div>";
+			
+		}
+		else {$query = mysqli_query($con,"SELECT $campos FROM  $tables where identificacion='$query' or serie='$query'");
+
+			?>
 		<div class="table-responsive">
 			<table class="table table-striped table-hover">
 				<thead>
@@ -45,11 +52,11 @@ if($action == 'ajax'){
                         <th>Serie </th>
 						<th class='text-center'>Nro Orden</th>
 						<th>Identificación </th>
-                                                <th>Nombre Cliente </th>
+                        <th>Nombre Cliente </th>
 						<th>Dirección </th>
-                                                <th>Localidad </th>
+                        <th>Localidad </th>
 						<th class='text-right'>Estado</th>
-		                                <th class='text-right'>Cable HDMI</th>
+		                <th class='text-right'>Cable HDMI</th>
 						<th class='text-center'>Cable AV</th>
 						<th class='text-center'>Fuente</th>
 						<th class='text-right'>Control</th>
@@ -64,9 +71,9 @@ if($action == 'ajax'){
 							$serie=$row['serie'];
 							$id_orden=$row['id_orden'];
 							$identificacion=$row['identificacion'];
-                                                        $nombre_cliente=$row['nombre_cliente'];
+                            $nombre_cliente=$row['nombre_cliente'];
 							$direccion=$row['direccion'];
-                                                        $localidad=$row['localidad'];
+                            $localidad=$row['localidad'];
 							$estado_rec=$row['estado_rec'];
 							$cable_hdmi=$row['cable_hdmi'];
 							$cable_av=$row['cable_av'];
@@ -122,5 +129,9 @@ if($action == 'ajax'){
 	<?php	
 	}	
 }
+		
+			
+		
+	
 ?>          
 		  

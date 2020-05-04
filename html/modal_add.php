@@ -6,7 +6,15 @@
 
 $(function(){
     $('#enviar').on('click', function(e){
-        e.preventDefault();
+		e.preventDefault();
+		var elemento = document.getElementById("serie").value
+             if (elemento == ""){
+             alert("Debes llenar el campo serie.")
+			 return false}
+			 var elemento = document.getElementById("identificacion").value
+             if (elemento == ""){
+             alert("Debes llenar el campo identificacion.")
+             return false}
 
         var id_recolector = $('#id_recolector').val();
         var serie = $('#serie').val();
@@ -62,72 +70,75 @@ $(function(){
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">	
-					<div class="form-group">
-							<label>ID Recolector</label>
-							<input type="text" name="id_recolector"  id="id_recolector" class="form-control" value="<?php if(isset($_SESSION['id_recolector']))
-							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
-							
-						</div>
+					
 									
+						
 						<div class="form-group">
-							<label>Serie</label>
-							<input type="text" name="serie"  id="serie" class="form-control" required>
-							
+						<label><strong>Cable HDMI</strong></label>
+							<div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="cable_hdmi" name=">cable_hdmi" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input" id="cable_hdmi" name=">cable_hdmi" value="No">No
+                          </div>
 						</div>
 						<div class="form-group">
-							<label>identificacion CTE</label>
-							<input type="text" name="identificacion" id="identificacion" class="form-control" required>
+							<label><strong>Cable AV</strong></label>
+							<div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="cable_av" name=">cable_av" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input" id="cable_av" name=">cable_av" value="No">No
+                          </div>
 						</div>
 						
 						<div class="form-group">
-							<label>Nro Orden</label>
-							<input type="text" name="id_orden"  id="id_orden" class="form-control" value="<?php if(isset($_SESSION['id_order']))
-							 { echo $_SESSION['id_order']; } ?>" required>
-							
+							<label><strong>Fuente</strong></label>
+							<div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="fuente" name=">fuente" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input" id="fuente" name=">fuente" value="No">No
+                          </div>
 						</div>
 						<div class="form-group">
-						  <label>Estado</label>
+							<label><strong>Control</strong></label>
+							<div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="control_1" name=">control_1" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input" id="control_1" name=">control_1" value="No">No
+                          </div>
+						</div>
+						<div class="form-group">
+						  <label><strong>Estado</strong></label>
 					        <select type="text" name="estado" id="estado" class="form-control" required>
 	                        <option value="A-CONFIRMAR">A CONFIRMAR</option>
 						  </select>					
 						</div>
+						
 						<div class="form-group">
-							<label>Fecha</label>
-							<input class="form-control" type="text" name="horario_rec" id="horario_rec" value="<?php date_default_timezone_set('America/Argentina/Buenos_Aires'); echo date("Y-m-d H:i:s");?>" readonly>
+							<label><strong>Serie</strong></label>
+							<input type="text" name="serie"  id="serie" class="form-control" required>
+							
 						</div>
 						<div class="form-group">
-							<label>Cable HDMI</label>
-							<select  name="cable_hdmi" id="cable_hdmi" class="form-control" required>
-	                        <option value="Si">Si</option>
-							<option value="No">No</option>
-							</select>					
-						</div>	
-						<div class="form-group">
-							<label>Cable av</label>
-							<select  name="cable_av" id="cable_av" class="form-control" required>
-							<option value="Si">Si</option>
-							<option value="No">No</option>
-							</select>
-						</div>	
-						<div class="form-group">
-							<label>fuente</label>
-							<select  name="fuente" id="fuente" class="form-control" required>
-							<option value="Si">Si</option>
-							<option value="No">No</option>
-							</select>
-						</div>					
-					
-						<div class="form-group">
-							<label>control_1</label>
-							<select  name="control_1" id="control_1" class="form-control" required>
-							<option value="Si">Si</option>
-							<option value="No">No</option>
-							</select>
+							<label><strong>Identificacion CTE</strong></label>
+							<input type="text" name="identificacion" id="identificacion" class="form-control" required>
 						</div>
 						<div class="form-group">
-							<label>Sugerencias/Opcional</label>
+							<label><strong>Sugerencias/Opcional</strong></label>
 							<textarea type="text" name="adicional" id="adicional" class="form-control">
 							</textarea>
+						</div>
+						
+						<div class="form-group">
+							<label><strong>Nro Orden</strong></label>
+							<input type="text" name="id_orden"  id="id_orden" class="form-control" value="<?php if(isset($_SESSION['logged_user']))
+							 { echo $_SESSION['id_order']; } ?>" required>
+							
+						</div>
+						
+						<div class="form-group">
+	                    <input class="form-control" type="hidden" name="horario_rec" id="horario_rec" value="<?php date_default_timezone_set('America/Argentina/Buenos_Aires'); echo date("Y-m-d H:i:s");?>" readonly>
+						</div>
+						<div class="form-group">
+							<label><strong>ID Recolector</strong></label>
+							<input type="text" name="id_recolector"  id="id_recolector" class="form-control" value="<?php if(isset($_SESSION['logged_user']))
+							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
+							
 						</div>
 					</div>
 					<div class="modal-footer">

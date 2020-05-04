@@ -1,5 +1,9 @@
 	
 		function load(page){
+			var elemento = document.getElementById("q").value
+             if (elemento == ""){
+             alert("Debes llenar el campo buscar")
+             return false}
 			var query=$("#q").val();
 			var per_page=5;
 			var parametros = {"action":"ajax","page":page,'query':query,'per_page':per_page};
@@ -17,6 +21,7 @@
 			})
 		}
 		$('#editProductModal').on('show.bs.modal', function (event) {
+			
 		  var button = $(event.relatedTarget) // Button that triggered the modal
 		  var serie = button.data('serie') 
 		  $('#edit_serie').val(serie)

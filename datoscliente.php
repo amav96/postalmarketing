@@ -108,7 +108,8 @@ $(function(){
      <div class="form-group mx-sm-3 mb-2">
          <form  action="" method="POST">
          
-         <input type="text" class="form-control"  name="id_recolector" placeholder="ID recolector" style="float:right;width:150px;height:40px;" required>
+         <input type="text" class="form-control"  name="id_recolector" placeholder="ID recolector" style="float:right;width:150px;height:40px;" value="<?php if(isset($_SESSION['id_recolector']))
+							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
         <input type="hidden" class="form-control" name="fecha_orden"style="float:right;width:150px;height:40px;" value="<?php date_default_timezone_set('America/Argentina/Buenos_Aires'); echo date("Y-m-d H:i:s");?>" readonly>
         <button type="submit" name="ordengenerar" id="ordengenerar" class="btn btn-primary mb-2" style="width:150px;height:40px;">Generar Orden</button>
         <div id="alertorden"><img id="imagenorden" src="img/cargando.gif" alt=""><span id="mensajesorden"></span></div>
@@ -222,6 +223,24 @@ $(function(){
 	<?php include("html/modal_edit.php");?>
 	<!-- Delete Modal HTML -->
 	<?php include("html/modal_delete.php");?>
+
+  <script type="text/javascript">
+	function e(q) {
+    document.body.appendChild( document.createTextNode(q) );
+    document.body.appendChild( document.createElement("BR") );
+}
+function inactividad() {
+  window.location.href = "cerrar_sesion.php";
+}
+var t=null;
+function contadorInactividad() {
+    t=setTimeout("inactividad()",70000);
+}
+window.onblur=window.onmousemove=function() {
+    if(t) clearTimeout(t);
+    contadorInactividad();
+}
+</script>
 	<script src="js/script.js"></script>
 	<script src="js/menu.js"></script>
 
