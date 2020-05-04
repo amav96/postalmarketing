@@ -1,6 +1,6 @@
 <?php require_once('./conexion.php');?>
 <link rel="stylesheet" href="./css/alert.css">
-<script text="text/javascript" src="./js/jquery.js"></script>
+
 
 <script>
 
@@ -56,7 +56,7 @@ $(function(){
 <div id="addProductModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
-				<form action="" method="POST" name="add_product" id="add_product">>
+				<form action="" method="POST" name="add_product" id="add_product">
 					<div class="modal-header">						
 						<h4 class="modal-title">Agregar Equipo</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -64,7 +64,8 @@ $(function(){
 					<div class="modal-body">	
 					<div class="form-group">
 							<label>ID Recolector</label>
-							<input type="text" name="id_recolector"  id="id_recolector" class="form-control" required>
+							<input type="text" name="id_recolector"  id="id_recolector" class="form-control" value="<?php if(isset($_SESSION['id_recolector']))
+							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
 							
 						</div>
 									
@@ -80,7 +81,8 @@ $(function(){
 						
 						<div class="form-group">
 							<label>Nro Orden</label>
-							<input type="text" name="id_orden"  id="id_orden" class="form-control" required>
+							<input type="text" name="id_orden"  id="id_orden" class="form-control" value="<?php if(isset($_SESSION['id_order']))
+							 { echo $_SESSION['id_order']; } ?>" required>
 							
 						</div>
 						<div class="form-group">

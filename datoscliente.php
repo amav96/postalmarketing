@@ -114,37 +114,43 @@ $(function(){
         <div id="alertorden"><img id="imagenorden" src="img/cargando.gif" alt=""><span id="mensajesorden"></span></div>
       
     </form>
-    </div>
-    
+    </div> 
 </section>
-
-     
-    
-    <?php
+ <?php
     
     if(isset($_POST['ordengenerar']))
     {
       include('conexion.php');
          
+      sleep(2);
           $fecha_orden=$_POST['fecha_orden'];
           $id_recolector=$_POST['id_recolector'];
 
-          $sql1="SELECT id_recolector,nombre_recolector from recolectores where id_recolector='$id_recolector'";
+          $sql1="SELECT id_recolector,nombre_recolector from
+           recolectores where id_recolector='$id_recolector'";
           $resultado = $con->query($sql1);
-            $fila = mysqli_num_rows($resultado);
+            $row = mysqli_num_rows($resultado);
 
-             if($fila==0){
+
+             if($row==0){
               echo "No existe ID";
              }
+
+             
              else {
-              $sql = "INSERT INTO ordenes (id_recolector,fecha_orden)
+              $sql = "INSERT INTO ordenes (id_recolector,
+              fecha_orden)
               VALUES ('$id_recolector','$fecha_orden')";
-              $insert = $con->query($sql) or die (mysqli_erno());     
+              $result = mysqli_query($con,$sql);
+              
+              $_SESSION["id_recolector"] = $_POST;
+              //$_SESSION[$_POST["id_recolector"]];
               
              }
-             if($fila==0){
+
+             if($row==0){
               
-             } 
+             }
              else {
            $mostrar="SELECT id
            from ordenes
@@ -152,12 +158,10 @@ $(function(){
            limit 1";
            $resultados=mysqli_query($con,$mostrar);
            $fila=mysqli_fetch_row($resultados);
-      
-    echo "
+          $_SESSION['id_order'] = $fila['0'];
+   
+          echo "
 
-    
-     
-  
     <table class='table table-responsive'>
     <thead>
   <tr>

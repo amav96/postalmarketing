@@ -13,6 +13,7 @@
   <link href="fonts/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="css/estilos.css">
   <link rel="stylesheet" href="css/logo.css">
+  <link rel="stylesheet" href="css/what.css">
  
  </head>
 <body>
@@ -36,12 +37,17 @@
          </div>
 	</header>
 <div class="banner">
-	<img src="img/2.jpg" alt="" class="banner__img">
+	<img src="img/2.jpg" alt="" class="banner__img"></a>
 	<div class="contenedor">
 		<h2 class="banner__titulo">Postal Marketing</h2>
-		<p class="banner__txt">El mejor servicio</p>
-	</div>
+		<p class="banner__txt">EXPRESS</p>
+		<div>
+		<img src="img/hombre.svg" alt="" class="estylo" style="position:relative;top:-15px;width:70px;heigth:70px;"></a>
 </div>
+	</div>
+	
+</div>
+
 <main class="main">
 	<div class="contenedor">
 <section class="info">
@@ -50,7 +56,7 @@
 		<h2 class="info__titulo"> Logistica</h2>
 		<p class="info__txt">Distribuciones masivas al destinatario, servicio fullfilment o finishing. </p>
 		<div>
-			<a href="nosotros.php"><img src="img/hombre.svg" alt="" class="estylo"></a>
+			<a href="https://api.whatsapp.com/send?phone=541131366295&text=Hola,%20me%20quisiera%20poner%20en%20contacto%20con%20ustedes.&source=&data=&app_absent=" target="_blank"><img src="img/what1.png" alt="" class="estylo"></a>
 			<style>
 				.estylo {
 				width: 90px;

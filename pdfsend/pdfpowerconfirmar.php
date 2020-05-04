@@ -14,7 +14,7 @@ $id_orden=$_POST['id_orden'];
 $acentos = $conn->query("SET NAMES 'utf8'");  
 $productos ="SELECT e.empresa,a.serie,a.tarjeta,e.direccion,a.cable_hdmi,
 a.cable_av,a.fuente,a.control_1,a.id_orden,a.identificacion,e.nombre_cliente,
-a.horario_rec,e.password_rec,e.id_recolector_2,a.estado,adicional FROM express e INNER JOIN autorizar a on e.identificacion=a.identificacion
+a.horario_rec,e.password_rec,e.id_recolector_2,a.estado_rec,adicional FROM express e INNER JOIN autorizar a on e.identificacion=a.identificacion
  WHERE a.id_orden = '$id_orden' and a.identificacion='$identificacion'  GROUP BY a.serie;";
 $acentos = $conn->query("SET NAMES 'utf8'");
 $result = $conn->query($productos);

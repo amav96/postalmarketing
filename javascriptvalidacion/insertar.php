@@ -29,7 +29,7 @@ if($fila==0){
     
 }
 else {
-	$sql = "INSERT INTO autorizar(id_recolector, id_orden, serie, identificacion, cable_hdmi, cable_av, fuente,control_1,estado,horario_rec,
+	$sql = "INSERT INTO autorizar(id_recolector_2, id_orden, serie, identificacion, cable_hdmi, cable_av, fuente,control_1,estado_rec,horario_rec,
 	adicional) VALUES ('$id_recolector','$id_orden','$serie','$identificacion','$cable_hdmi','$cable_av','$fuente','$control_1','$estado','$horario_rec','$adicional')";
     $insert = $con->query($sql) or die (mysqli_erno());
     echo 1;

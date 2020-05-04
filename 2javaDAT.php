@@ -32,5 +32,8 @@
       "autoWidth": false,
       "responsive": false,
     });
+      $('.select2').select2({
+        theme: 'bootstrap4'
+      });
   });
 </script>

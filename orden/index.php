@@ -14,7 +14,9 @@
   <?php
     $inf = null;
     require_once($rut.DIRACT.$direc);
-    $inf = index($rut);
+    $inf = index($rut,$uid);
+
+    if(isset($_SESSION['cboCli'])){ $cboCli = $_SESSION['cboCli']; unset($_SESSION['cboCli']); }else{ $cboCli=null; }
   ?>
 </head>
 <body class="hold-transition sidebar-mini sidebar-collapse layout-fixed layout-navbar-fixed">
@@ -100,7 +102,7 @@
                     <h3>Base 1 de <?php echo $pagina; ?></h3>
                 </div>
                 <div class="col-sm-4 text-right">
-                
+                  <a href="#"  data-target="#nueva" class="btn btn-success" data-toggle="modal">Nueva Orden</a>
                 </div>
             </div>
                 
@@ -128,6 +130,32 @@
 	<?php include_once($rut.'4footer.php');  ?>
 
 	<?php include_once($rut.'2javaDAT.php');  ?>
+
+  <div id="nueva" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form action="<?= ACTI.$direc; ?>" method="POST">
+          <div class="modal-header">            
+            <h4 class="modal-title">Nueva Orden</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          </div>
+          <div class="modal-body">          
+            <div class="form-group">
+              <label>Serie</label>
+              <input type="text" name="serie_ord" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label>Cliente</label>
+              <select class="form-control select2" name="id_cli"><?php echo $cboCli; $cboCli=null; ?></select>
+            </div>         
+          </div>
+          <div class="modal-footer">
+            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+            <input type="submit" name="addProducto" class="btn btn-info" value="Confirmar">
+          </div>
+        </form>
+      </div>
+    </div>
 
   <!-- Modal -->
   <div class="modal fade" id="importar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

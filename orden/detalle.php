@@ -14,7 +14,7 @@
   <?php
     $inf = null;
     require_once($rut.DIRACT.$direc);
-    $inf = detalle($rut,$pid);
+    $inf = detalle($rut,$uid,$pid);
   ?>
 </head>
 <body class="hold-transition sidebar-mini sidebar-collapse layout-fixed layout-navbar-fixed">

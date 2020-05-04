@@ -11,22 +11,25 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="../css/custom.css">
-<link rel="stylesheet" href="../css/estilos.css">
-  <script>src="../js/jquery-3.4.1.min.js"</script>
-  <script>src="../bootstrap/js/bootstrap.min.css"</script>
+<link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="css/estilos.css">
+  <script>src="js/jquery-3.4.1.min.js"</script>
+  <script>src="bootstrap/js/bootstrap.min.css"</script>
+  
+  <link href="fonts/styles.css" rel="stylesheet">
+ <link rel="stylesheet" href="css/formulario.css">
+  <link rel="stylesheet" href="css/logo.css">
+  <link rel="stylesheet" href="css/flexbox.css">
+  
   
   <link href="../fonts/styles.css" rel="stylesheet">
- <link rel="stylesheet" href="../css/formulario.css">
-  <link rel="stylesheet" href="../css/logo.css">
-  <link rel="stylesheet" href="../css/flexbox.css">
  
  </head>
 <body>
   <div>
   <header class="header">
     <div class="contenedor">
-      <img src="../img/logo.png" class="info__logo">
+      <img src="./img/logo.png" class="info__logo">
       
       <span class="icon-menu" id="btn-menu"></span>
 
@@ -53,7 +56,8 @@
                         <div class="form-group">
                             <label for="id_orden">Nro Orden</label>
                             <input  type="text" name="id_orden"   id="id_orden" 
-                                class="form-control" placeholder="Nro. Orden" style="width:180px;height:38px;" required>
+                                class="form-control" placeholder="Nro. Orden" style="width:180px;height:38px;" value="<?php if(isset($_SESSION['id_order']))
+							 { echo $_SESSION['id_order']; } ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="identificacion">Identificacion Cliente</label>

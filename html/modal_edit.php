@@ -16,19 +16,27 @@
 						</div>
 						<div class="form-group">
 							<label>Nro Orden</label>
-							<input type="text" name="edit_id_orden" id="edit_id_orden" class="form-control" required>
+							<input type="text" name="edit_id_orden" id="edit_id_orden" class="form-control"
+							 value="<?php if(isset($_SESSION['id_order']))
+							 { echo $_SESSION['id_order']; } ?>" required>
 						</div>
 						<div class="form-group">
 							<label>Fecha</label>
-							<input class="form-control" type="text" name="horario_rec" id="horario_rec" value="<?php date_default_timezone_set('America/Argentina/Buenos_Aires'); echo date("Y-m-d H:i:s");?>" readonly>
+							<input type="hidden" class="form-control" type="text" name="horario_rec" id="horario_rec"
+							 value="<?php date_default_timezone_set('America/Argentina/Buenos_Aires'); echo date("Y-m-d H:i:s");?>" readonly>
 						</div>
 						<div class="form-group">
 							<label>ID Recolector</label>
-							<input class="form-control" type="text" name="id_recolector_password" id="id_recolector_password" required>
+							<input class="form-control" type="text" name="id_recolector_password" id="id_recolector_password" 
+							value="<?php if(isset($_SESSION['id_recolector']))
+							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
 						</div>
 						<div class="form-group">
 							<label>Ingrese nuevamente ID Recolector</label>
-							<input class="form-control" type="text" name="id_recolector_2" id="id_recolector_2" required>
+							<input class="form-control" type="text" name="id_recolector_2" id="id_recolector_2" 
+							value="<?php if(isset($_SESSION['id_recolector']))
+							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
+						
 						</div>
 						<div class="form-group">
 							<label>Estado</label>

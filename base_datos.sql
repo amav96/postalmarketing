@@ -104,7 +104,7 @@ ALTER TABLE `tblprod`
     id_ord INT NOT NULL,
     id_pro INT NOT NULL
   );
--------------------------INSERTS-------------------------
+/*-------------------------INSERTS-------------------------*/
   INSERT INTO cliente (nombre_cli) VALUES
     ('cliente 1'),
     ('cliente 2'),
