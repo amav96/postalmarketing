@@ -36,12 +36,15 @@ SESSION_START();
   <link rel="stylesheet" href="css/logo.css">
   <link rel="stylesheet" href="css/flexbox.css">
   
-  <script text="text/javascript" src="js/jquery.js"></script>
+  
+
+  <!-- sesion para llevar nro de orden y id recolector -->
   <?php
     if(isset($_SESSION['stat'])){ $stat=1; }else{ $stat=0; }
     if(isset($_SESSION['status'])){ $status=$_SESSION['status']; unset($_SESSION['status']); }else{ $status=null; }
   ?>
  </head>
+ 
 <body>
 <div>
   <header class="header">
@@ -67,11 +70,13 @@ SESSION_START();
             <b><h2><?= $pagina; ?></b></h2>
 					</div>
           <br>
+          <!--formulario generar orden -->
           <section>
             <div class="form-group mx-sm-3 mb-2">
               <a href="#addProductModal" class="btn btn-success" data-toggle="modal" style="width:150px;height:40px;"><i class="material-icons" >&#xE147;</i> <span>Agregar Equipo</span></a>
             </div>          
             <div class="form-group mx-sm-3 mb-2">
+            <!--enviado por ruta ACTI/-->
               <form  action="<?= ACTI.$direc; ?>" method="POST">
                 <input type="text" class="form-control"  name="id_recolector" placeholder="ID recolector" style="float:right;width:150px;height:40px;" value="<?php if(isset($_SESSION['id_recolector']))
 							{ echo $_SESSION['id_recolector']; } ?>" readonly="readonly">
@@ -82,8 +87,11 @@ SESSION_START();
             </div> 
           </section>
 
+
+          <!--tabla generar orden p -->
+
           <?php if ($stat==1): ?>
-            <table class='table table-responsive'>
+            <table id="table1" class='table table-responsive'>
               <thead>
                 <tr>
                   <th scope='col'>Nro.Orden</th>
@@ -91,7 +99,7 @@ SESSION_START();
               </thead>
               <tdoby>
                 <tr>  
-                  <td><?= $_SESSION['id_order']; ?></td>
+                  <td id="order"><?= $_SESSION['id_order'];?></td>
                 </tr>
               </tbody>
             </table>
@@ -99,7 +107,7 @@ SESSION_START();
         </div>
       </div>
       
-      
+      <!-- BUSCAR -->
       <div class='col-sm-4 pull-right' style="position:inherit;">
         <div id="custom-search-input" style="position:inherit;">
           <div class="input-group col-md-12" style="position:inherit;">
@@ -131,6 +139,28 @@ SESSION_START();
 	<!-- Delete Modal HTML -->
 	<?php include("html/modal_delete.php");?>
 
+<!--OBTENGO VALOR DE LA SESION DEL LADO DEL SERVIDOR -->
+<script>
+$(function(){
+  var idValueQueNecesito = $('#order').text();
+  $(document).on('click', '.editar', function () {
+    $('#idValueQueNecesito').val($().closest("tr").find(".order").text());
+    $('#editProductModal').modal('show');
+    console.log(idValueQueNecesito);
+});
+});
+         $.ajax({
+         method: "POST",
+         url: "html/modal_edit.php",
+         data: {"idValueQueNecesito":idValueQueNecesito},
+         dataType: "json"})
+         .done(function(data){ 
+         console.log(data);
+         $("input[name=edit_id_orden").text(data.edit_id_orden)
+  });    
+
+</script>
+<!-- cerrar sesion despues de cierto tiempo-->
   <script type="text/javascript">
 	function e(q) {
     document.body.appendChild( document.createTextNode(q) );

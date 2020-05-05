@@ -63,9 +63,7 @@
 						</div>
 						<div class="form-group">
 							<label><strong>Nro Orden</strong></label>
-							<input type="text" name="edit_id_orden" id="edit_id_orden" class="form-control"
-							 value="<?php if(isset($_SESSION['id_order']))
-							 { echo $_SESSION['id_order']; } ?>" required>
+							<input type="text" name="edit_id_orden" id="idValueQueNecesito" class="form-control" required>
 						</div>
 						
 						<div class="form-group">
@@ -97,3 +95,7 @@
 			</div>
 	</div>
 		
+<script>
+
+
+</script>

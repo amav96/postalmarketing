@@ -10,7 +10,7 @@ if($action == 'ajax'){
 	$query =$_REQUEST['query'];
 	
 	$tables="express";
-	$campos="id,serie,id_orden,identificacion,nombre_cliente,direccion,localidad,cable_hdmi,cable_av,fuente,control_1,estado_rec";
+	$campos="id,serie,id_orden,identificacion,nombre_cliente,direccion,localidad,cable_hdmi,cable_av,fuente,control_1,estado_rec,telefono2";
 	
 	
 	//include 'pagination.php'; //include pagination file
@@ -28,7 +28,7 @@ if($action == 'ajax'){
 	//consulta principal para recuperar los datos
 		$acentos = $con->query("SET NAMES 'utf8'");
 		
-		$sql1="SELECT id,serie,id_orden,identificacion,nombre_cliente,direccion,localidad,cable_hdmi,cable_av,fuente,control_1,estado_rec
+		$sql1="SELECT id,serie,id_orden,identificacion,nombre_cliente,direccion,localidad,cable_hdmi,cable_av,fuente,control_1,estado_rec,telefono2
 		FROM express WHERE 
 		identificacion='$query' or serie='$query'";
 		$resultado = $con->query($sql1);
@@ -49,6 +49,7 @@ if($action == 'ajax'){
 				<thead>
 					<tr>
 					<th class='text-center'></th>
+					<th class='text-center'></th>
                         <th>Serie </th>
 						<th class='text-center'>Nro Orden</th>
 						<th>Identificación </th>
@@ -60,6 +61,7 @@ if($action == 'ajax'){
 						<th class='text-center'>Cable AV</th>
 						<th class='text-center'>Fuente</th>
 						<th class='text-right'>Control</th>
+						<th class='text-right'>Telefono</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -78,32 +80,40 @@ if($action == 'ajax'){
 							$cable_hdmi=$row['cable_hdmi'];
 							$cable_av=$row['cable_av'];
 							$fuente=$row['fuente'];	
-							$control_1=$row['control_1'];						
+							$control_1=$row['control_1'];	
+							$telefono2=$row['telefono2'];					
 							
 						?>	
+						
 						<tr class="<?php echo $text_class;?>">
 						<td>
-								<a href="#"  data-target="#editProductModal" class="edit" data-toggle="modal" data-serie='<?php echo $serie?>'
-								                                                                              data-id_orden='<?php echo $id_orden;?>'
-																											  data-identificacion="<?php echo $identificacion ?>"
-																											  data-direccion="<?php echo $direccion ?>"
-																											  data-estado_rec="<?php echo $estado_rec ?>"
-																											  data-cable_hdmi="<?php echo $cable_hdmi?>"
-																											  data-cable_av="<?php echo $cable_av?>"
-																											  data-fuente="<?php echo $fuente?>"
-																											  data-control_1="<?php echo $control_1?>"
-																											  data-id="<?php echo $id;?>">
+						<a href="https://api.whatsapp.com/send?phone=+54<?php echo $telefono2 ?>&text=
+	En%2015%20minutos%20aprox.%20llego%20a%20tu%20domicilio.%20¿Hay%20gente%20para%20entregar%20los%20decos?.%20Avisame,
+	%20no%20puedo%20demorarme,%20ni%20esperar,%20tengo%20recorrido%20Programado.&source
+						=&data=&app_absent=" class="fab fa-whatsapp"></a>
+						</td>
+						<td>
+				        <a href="#" data-target="#editProductModal" 
+				        class="edit" data-toggle="modal" data-serie='<?php echo $serie?>'
+						    data-id_orden='<?php echo $id_orden;?>'
+						    data-identificacion="<?php echo $identificacion ?>"
+						    data-direccion="<?php echo $direccion ?>"
+						    data-estado_rec="<?php echo $estado_rec ?>"
+						    data-cable_hdmi="<?php echo $cable_hdmi?>"
+						    data-cable_av="<?php echo $cable_av?>"
+						    data-fuente="<?php echo $fuente?>"
+						    data-control_1="<?php echo $control_1?>"
+						    data-id="<?php echo $id;?>">
+							
 																											  
-																											  <i class="fas fa-arrow-alt-circle-up">Recuperar</i></a>
-								
-								
-                    		</td>
+								<i id="editar" class="fas fa-arrow-alt-circle-up">Recuperar</i></a>
+							</td>
 							<td class='text-center'><?php echo $serie;?></td>
 							<td class='text-center'><?php echo $id_orden;?></td>
 							<td ><?php echo $identificacion;?></td>
-                                                        <td ><?php echo $nombre_cliente;?></td>
+                            <td ><?php echo $nombre_cliente;?></td>
 							<td ><?php echo $direccion;?></td>
-                                                        <td ><?php echo $localidad;?></td>
+                            <td ><?php echo $localidad;?></td>
 							<td ><?php echo $estado_rec;?></td>
 							<td ><?php echo $cable_hdmi;?></td>
 							<td class='text-center' ><?php echo $cable_av;?></td>

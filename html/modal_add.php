@@ -73,30 +73,30 @@ $(function(){
 						<div class="form-group">
 						<label><strong>Cable HDMI</strong></label>
 							<div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="cable_hdmi" name=">cable_hdmi" value="Si" checked>Si
-                            <input type="radio" class="custom-control-input" id="cable_hdmi" name=">cable_hdmi" value="No">No
+                            <input type="radio" class="custom-control-input" id="cable_hdmi" name="cable_hdmi" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input" id="cable_hdmi" name="cable_hdmi" value="No">No
                           </div>
 						</div>
 						<div class="form-group">
 							<label><strong>Cable AV</strong></label>
 							<div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="cable_av" name=">cable_av" value="Si" checked>Si
-                            <input type="radio" class="custom-control-input" id="cable_av" name=">cable_av" value="No">No
+                            <input type="radio" class="custom-control-input" id="cable_av" name="cable_av" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input" id="cable_av" name="cable_av" value="No">No
                           </div>
 						</div>
 						
 						<div class="form-group">
 							<label><strong>Fuente</strong></label>
 							<div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="fuente" name=">fuente" value="Si" checked>Si
-                            <input type="radio" class="custom-control-input" id="fuente" name=">fuente" value="No">No
+                            <input type="radio" class="custom-control-input" id="fuente" name="fuente" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input" id="fuente" name="fuente" value="No">No
                           </div>
 						</div>
 						<div class="form-group">
 							<label><strong>Control</strong></label>
 							<div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="control_1" name=">control_1" value="Si" checked>Si
-                            <input type="radio" class="custom-control-input" id="control_1" name=">control_1" value="No">No
+                            <input type="radio" class="custom-control-input" id="control_1" name="control_1" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input" id="control_1" name="control_1" value="No">No
                           </div>
 						</div>
 						<div class="form-group">
@@ -147,7 +147,8 @@ $(function(){
 			</div>
 		</div>
 	</div>
-	<script>
+
+<script>
 	function check(e) {
     tecla = (document.all) ? e.keyCode : e.which;
 

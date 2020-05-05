@@ -32,7 +32,7 @@
 
         $_SESSION['stat'] = $res = $_cl1->add($_db->conect03(),$id_recolector,$fecha_orden);
         
-        if ($res=="add") {
+        if ($res=="add") { //instancia maxID que es la clase para generar orden. ./morenoku/expres.php
             $_SESSION['id_order'] = $_cl1->maxID($_db->conect03());
         }
 
