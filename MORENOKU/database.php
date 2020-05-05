@@ -16,5 +16,11 @@
 			$con1->query("SET NAMES 'utf8'");
 	    	return($con1);
 		}
+		function conect03(){
+	    	$con1 = mysqli_connect("localhost","root","");
+			mysqli_select_db($con1,"formulario");
+			$con1->query("SET NAMES 'utf8'");
+	    	return($con1);
+		}
 	}
 ?>

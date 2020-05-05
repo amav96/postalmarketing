@@ -1,6 +1,6 @@
 
-</script>
-<div id="editProductModal" class="modal fade">
+
+	<div id="editProductModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form name="edit_product" id="edit_product">
@@ -77,13 +77,13 @@
 							<label><strong>Recolector</strong></label>
 							<input class="form-control" type="text" name="id_recolector_password" id="id_recolector_password" 
 							value="<?php if(isset($_SESSION['logged_user']))
-							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
+							{ echo $_SESSION['id_recolector']; } ?>" required>
 						</div>
 						<div class="form-group">
 							
 							<input class="form-control" type="hidden" name="id_recolector_2" id="id_recolector_2" 
 							value="<?php if(isset($_SESSION['logged_user']))
-							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
+							{ echo $_SESSION['id_recolector']; } ?>" required>
 						
 						</div>
 						
@@ -95,5 +95,5 @@
 					</div>
 				</form>
 			</div>
-		</div>
+	</div>
 		

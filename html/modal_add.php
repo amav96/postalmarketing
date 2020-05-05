@@ -16,7 +16,7 @@ $(function(){
              alert("Debes llenar el campo identificacion.")
              return false}
 
-        var id_recolector = $('#id_recolector').val();
+        var id_recolector = '<?= $_SESSION['id_recolector']; ?>';
         var serie = $('#serie').val();
         var identificacion = $('#identificacion').val();
         var id_orden = $('#id_orden').val();
@@ -50,10 +50,10 @@ $(function(){
                 success:function(respuesta){
                     $('#imagen').hide();
                     if(respuesta==1){
-                        $('#mensajes').html('Enviado correctamente');
+                        $('#mensajes').html('<div class="alert alert-info">Enviado correctamente');
                     }
                     else{
-                        $('#mensajes').html('Verificar Identificación Cliente');
+                        $('#mensajes').html('<div class="alert alert-danger">Verificar Identificación Cliente');
                     }
             }    
         })
@@ -61,7 +61,7 @@ $(function(){
 })
 </script>
 
-<div id="addProductModal" class="modal fade">
+	<div id="addProductModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<form action="" method="POST" name="add_product" id="add_product">
@@ -69,10 +69,7 @@ $(function(){
 						<h4 class="modal-title">Agregar Equipo</h4>
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
-					<div class="modal-body">	
-					
-									
-						
+					<div class="modal-body">
 						<div class="form-group">
 						<label><strong>Cable HDMI</strong></label>
 							<div class="custom-control custom-radio">
@@ -126,7 +123,7 @@ $(function(){
 						
 						<div class="form-group">
 							<label><strong>Nro Orden</strong></label>
-							<input type="text" name="id_orden"  id="id_orden" class="form-control" value="<?php if(isset($_SESSION['logged_user']))
+							<input type="text" name="id_orden"  id="id_orden" class="form-control"  value="<?php if(isset($_SESSION['id_order']))
 							 { echo $_SESSION['id_order']; } ?>" required>
 							
 						</div>
@@ -137,7 +134,7 @@ $(function(){
 						<div class="form-group">
 							<label><strong>ID Recolector</strong></label>
 							<input type="text" name="id_recolector"  id="id_recolector" class="form-control" value="<?php if(isset($_SESSION['logged_user']))
-							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
+							{ echo $_SESSION['id_recolector']; } ?>" required>
 							
 						</div>
 					</div>

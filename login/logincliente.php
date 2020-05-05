@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,46 +25,45 @@
   <link rel="stylesheet" href="../css/logo.css">
   <link rel="stylesheet" href="../css/abscenter.css">
   
+  <?php
+  	if (isset($_SESSION['Msg_error'])) { $Msg_error=$_SESSION['Msg_error']; unset($_SESSION['Msg_error']); }else{ $Msg_error=null;}
+  ?>
 	
 </head>
 <body>
 <?php 
-	SESSION_START();
 	if(isset($_SESSION['logged_user'])) { 
 		header('location:../datoscliente.php');
+		exit();
 	} else { 
 ?>
-    
 	<div class="text-center">
-    <div class="container">
-	 <div class="abs-center">
-             <form class="form-horizontal" action="../login/validarcliente.php" method="POST">
-             <section class="padre">
-              <div class="card">
-                <div class="card-body">
-		             <div class="form-group">
-		  
-		
-			 <h1>Recolector</h1>
-			   <input type="text" class="form-control" name="id_recolector" id="id_recolector" placeholder="Nro Recolector" required>
-				 <small class="form-text text-muted">Ingrese Dato</small>
-		  </div>
-			<div class="form-group">
-			 
-			  <button type="submit" class="btn btn-info">Ingresar</button>
-		  
-		             </div>
-                </div>
-              </div>
-             
-		</form>
+    	<div class="container">
+			<div class="abs-center">
+				<form class="form-horizontal" action="../login/validarcliente.php" method="POST">
+					<section class="padre">
+						<div class="card">
+							<div class="card-body">
+								<div class="form-group">
+									<h1>Recolector</h1>
+									<input type="text" class="form-control" name="id_recolector" id="id_recolector" placeholder="Nro Recolector" required>
+									<small class="form-text text-muted">Ingrese Usuario</small>
+									<?php if (strlen($Msg_error) > 5): ?>
+										<label class="alert alert-danger"><?= $Msg_error ?></label>
+									<?php endif ?>
+		  						</div>
+								<div class="form-group">
+			  						<button type="submit" name="ingresarClient" class="btn btn-info">Ingresar</button>
+								</div>
+                			</div>
+              			</div>
+              		</section>
+				</form>
+			</div>
 		</div>
-		</div>
-		</div>
-		
+	</div>
 <?php 
 	}
 ?>
-
 </body>
 </html>

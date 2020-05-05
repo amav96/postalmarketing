@@ -1,10 +1,13 @@
 <?php
 //include 'conexion.php';
 SESSION_START();
+  $rut='./';
+  $pagina='Panel Recolector';
+  $direc='datoscliente.php';
 
-if(!isset($_SESSION['logged_user'])){ 
-    header('location:login/logincliente.php');
-  } if(!isset($_SESSION['logged_user'])){
+  require($rut.'const.php');
+
+  if(!isset($_SESSION['logged_user'])){ 
     header('location:login/logincliente.php');
   }
 ?>
@@ -14,7 +17,7 @@ if(!isset($_SESSION['logged_user'])){
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Panel Recolector</title>
+<title><?= $pagina; ?></title>
 
 <link rel="stylesheet" href="css/alertorden.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
@@ -34,9 +37,13 @@ if(!isset($_SESSION['logged_user'])){
   <link rel="stylesheet" href="css/flexbox.css">
   
   <script text="text/javascript" src="js/jquery.js"></script>
+  <?php
+    if(isset($_SESSION['stat'])){ $stat=1; }else{ $stat=0; }
+    if(isset($_SESSION['status'])){ $status=$_SESSION['status']; unset($_SESSION['status']); }else{ $status=null; }
+  ?>
  </head>
 <body>
-  <div>
+<div>
   <header class="header">
     <div class="contenedor">
       <img src="img/logo.png" class="info__logo">
@@ -44,181 +51,81 @@ if(!isset($_SESSION['logged_user'])){
       <span class="icon-menu" id="btn-menu"></span>
 
       <nav class="nav" id="nav">
-      <ul class="menu">
-        <li class="menu__item"><a class="menu__link select" href="index.php">INICIO</a></li>
-        <li class="menu__item"><a class="menu__link select" href="cerrar_sesion.php">FINALIZAR</a></li>
-      </ul>
-    </nav>
-</div>
-</header>
-<script>
-
-$(function(){
-    $('#ordengenerar').on('click', function(e){
-        e.preventDefault();
-
-        var id_recolector = $('#id_recolector').val();
-        
-        
-
-        $.ajax({
-            type:"POST",
-            url: "datoscliente.php",
-            data: {'id_recolector':id_recolector
-                   'fecha_orden':fecha_orden},
-                beforeSend: function(){
-                    $('#imagenorden').show();
-                    $('#mensajesorden').html('Procesando datos...');
-
-                },
-                success:function(respuesta){
-                  
-                    $('#imagenorden').hide();
-                    if(respuesta==1){
-                        $('#mensajesorden').html('Enviado correctamente');
-                    }
-                    else{
-                        $('#mensajesorden').html('Verificar ID Recolector');
-                    }
-            }    
-        })
-    })
-})
-</script>
-         
-         
-         
-
-    <div class="container" style="position:inherit;">
-        <div class="table-wrapper" style="position:inherit;">
-            <div class="table-title" style="position:inherit;">
-                <div class="row" style="position:inherit;">
-                    <div class="col-sm-6" style="position:inherit;">
-					<b><h2>Panel Recolector</b></h2>
-          
+        <ul class="menu">
+          <li class="menu__item"><a class="menu__link select" href="index.php">INICIO</a></li>
+          <li class="menu__item"><a class="menu__link select" href="cerrar_sesion.php">FINALIZAR</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+  <div class="container" style="position:inherit;">
+    <div class="table-wrapper" style="position:inherit;">
+      <div class="table-title" style="position:inherit;">
+        <div class="row" style="position:inherit;">
+          <div class="col-sm-6" style="position:inherit;">
+            <b><h2><?= $pagina; ?></b></h2>
 					</div>
           <br>
-          
-                    <section>
-                    
-                    <div class="form-group mx-sm-3 mb-2">
-						<a href="#addProductModal" class="btn btn-success" data-toggle="modal" style="width:150px;height:40px;"><i class="material-icons" >&#xE147;</i> <span>Agregar Equipo</span></a>
-					</div>
-          
-     <div class="form-group mx-sm-3 mb-2">
-         <form  action="" method="POST">
-         
-         <input type="text" class="form-control"  name="id_recolector" placeholder="ID recolector" style="float:right;width:150px;height:40px;" value="<?php if(isset($_SESSION['id_recolector']))
-							{ echo $_SESSION['id_recolector']['id_recolector']; } ?>" required>
-        <input type="hidden" class="form-control" name="fecha_orden"style="float:right;width:150px;height:40px;" value="<?php date_default_timezone_set('America/Argentina/Buenos_Aires'); echo date("Y-m-d H:i:s");?>" readonly>
-        <button type="submit" name="ordengenerar" id="ordengenerar" class="btn btn-primary mb-2" style="width:150px;height:40px;">Generar Orden</button>
-        <div id="alertorden"><img id="imagenorden" src="img/cargando.gif" alt=""><span id="mensajesorden"></span></div>
-      
-    </form>
-    </div> 
-</section>
- <?php
-    
-    if(isset($_POST['ordengenerar']))
-    {
-      include('conexion.php');
-         
-      sleep(2);
-          $fecha_orden=$_POST['fecha_orden'];
-          $id_recolector=$_POST['id_recolector'];
+          <section>
+            <div class="form-group mx-sm-3 mb-2">
+              <a href="#addProductModal" class="btn btn-success" data-toggle="modal" style="width:150px;height:40px;"><i class="material-icons" >&#xE147;</i> <span>Agregar Equipo</span></a>
+            </div>          
+            <div class="form-group mx-sm-3 mb-2">
+              <form  action="<?= ACTI.$direc; ?>" method="POST">
+                <input type="text" class="form-control"  name="id_recolector" placeholder="ID recolector" style="float:right;width:150px;height:40px;" value="<?php if(isset($_SESSION['id_recolector']))
+							{ echo $_SESSION['id_recolector']; } ?>" readonly="readonly">
+                <input type="hidden" class="form-control" name="fecha_orden"style="float:right;width:150px;height:40px;" value="<?php date_default_timezone_set('America/Argentina/Buenos_Aires'); echo date("Y-m-d H:i:s");?>" readonly>
+                <button type="submit" name="ordengenerar" id="ordengenerar" class="btn btn-primary mb-2" style="width:150px;height:40px;">Generar Orden</button>
+                <div id="alertorden"><img id="imagenorden" src="img/cargando.gif" alt=""><span id="mensajesorden"></span></div>
+              </form>
+            </div> 
+          </section>
 
-          $sql1="SELECT id_recolector,nombre_recolector from
-           recolectores where id_recolector='$id_recolector'";
-          $resultado = $con->query($sql1);
-            $row = mysqli_num_rows($resultado);
-
-
-             if($row==0){
-              echo "No existe ID";
-             }
-
-             
-             else {
-              $sql = "INSERT INTO ordenes (id_recolector,
-              fecha_orden)
-              VALUES ('$id_recolector','$fecha_orden')";
-              $result = mysqli_query($con,$sql);
-              
-              $_SESSION["id_recolector"] = $_POST;
-              //$_SESSION[$_POST["id_recolector"]];
-              
-             }
-
-             if($row==0){
-              
-             }
-             else {
-           $mostrar="SELECT id
-           from ordenes
-           order by id desc
-           limit 1";
-           $resultados=mysqli_query($con,$mostrar);
-           $fila=mysqli_fetch_row($resultados);
-          $_SESSION['id_order'] = $fila['0'];
-   
-          echo "
-
-    <table class='table table-responsive'>
-    <thead>
-  <tr>
-  <th scope='col'>Nro.Orden</th>
-
-</tr>
-   <tr>  
-        <td>".$fila['0']."</td>
- 
-       </tr>
-       </tbody>
-</table>
-    ";
-
-  }
-}
-?>
-					
-                </div>
-            </div>
-            
-			<div class='col-sm-4 pull-right' style="position:inherit;">
-      
-				<div id="custom-search-input" style="position:inherit;">
-                            <div class="input-group col-md-12" style="position:inherit;">
-                            
-                                <input type="text" class="form-control" placeholder="Buscar"  id="q" style="position:inherit;"/>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-info" type="button" onclick="load(1);">
-                                        <span class="glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>    
-                            </div>    
-                </div>
-                <br>
-                <form action="enviarcliente.php" method="POST" >
-	<button class="btn btn-primary mb-2" style="margin:;float:left;">Enviar cupon a cliente</button>
-	</form>
-  
-			</div>
+          <?php if ($stat==1): ?>
+            <table class='table table-responsive'>
+              <thead>
+                <tr>
+                  <th scope='col'>Nro.Orden</th>
+                </tr>
+              </thead>
+              <tdoby>
+                <tr>  
+                  <td><?= $_SESSION['id_order']; ?></td>
+                </tr>
+              </tbody>
+            </table>
+          <?php endif ?>
+        </div>
+      </div>
       
       
-
+      <div class='col-sm-4 pull-right' style="position:inherit;">
+        <div id="custom-search-input" style="position:inherit;">
+          <div class="input-group col-md-12" style="position:inherit;">
+            <input type="text" class="form-control" placeholder="Buscar"  id="q" style="position:inherit;"/>
+            <span class="input-group-btn">
+              <button class="btn btn-info" type="button" onclick="load(1);">
+                <span class="glyphicon glyphicon-search"></span>
+              </button>
+            </span>    
+          </div>    
+        </div>
+        <br>
+        <form action="enviarcliente.php" method="POST" >
+          <button class="btn btn-primary mb-2" style="margin:;float:left;">Enviar cupon a cliente</button>
+	       </form>
+      </div>
 			<div class='clearfix'></div>
 			<hr>
 			<div id="loader"></div><!-- Carga de datos ajax aqui -->
 			<div id="resultados"></div><!-- Carga de datos ajax aqui -->
-			<div class='outer_div'></div><!-- Carga de datos ajax aqui -->
-            
-            
-            
-            </div>	
-        </div>
-    </div>
+			<div class='outer_div'></div><!-- Carga de datos ajax aqui -->  
+    </div>	
+  </div>
+</div>
 	<!-- Edit Modal HTML -->
-	<?php include("html/modal_add.php");?>
+  <?php include("html/modal_add.php");?>
 	<!-- Edit Modal HTML -->
 	<?php include("html/modal_edit.php");?>
 	<!-- Delete Modal HTML -->

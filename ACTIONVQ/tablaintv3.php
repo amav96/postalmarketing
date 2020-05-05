@@ -30,7 +30,7 @@
 
     if (isset($_REQUEST['importar'])) {
         session_start();
-        require('../Const.php');
+        require('../const.php');
         include($ru2.DIRMOR.'funct_conc.php');
 
         if (isset($_POST['importar'])) {
