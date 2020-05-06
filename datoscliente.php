@@ -140,12 +140,13 @@ SESSION_START();
 	<?php include("html/modal_delete.php");?>
 
 <!--OBTENGO VALOR DE LA SESION DEL LADO DEL SERVIDOR -->
-<script>
+<script> 
 $(function(){
-  var idValueQueNecesito = $('#order').text();
-  $(document).on('click', '.editar', function () {
+  var idValueQueNecesito = $('#order').text(); // esto agarra tu numero de orden 
+  $(".").on('click', '.editar', function () {
     $('#idValueQueNecesito').val($().closest("tr").find(".order").text());
     $('#editProductModal').modal('show');
+
     console.log(idValueQueNecesito);
 });
 });
@@ -155,7 +156,7 @@ $(function(){
          data: {"idValueQueNecesito":idValueQueNecesito},
          dataType: "json"})
          .done(function(data){ 
-         console.log(data);
+         console.log(data); // esto es lo que yo te había dicho cierto
          $("input[name=edit_id_orden").text(data.edit_id_orden)
   });    
 
@@ -171,12 +172,23 @@ function inactividad() {
 }
 var t=null;
 function contadorInactividad() {
-    t=setTimeout("inactividad()",70000);
+    t=setTimeout("inactividad()",900000);
 }
 window.onblur=window.onmousemove=function() {
     if(t) clearTimeout(t);
     contadorInactividad();
 }
+</script>
+
+
+<script>
+	$(".btn-success").click(function(){
+
+$("input[name=id_orden]").val($("#order").text());
+
+});
+</script>
+
 </script>
 	<script src="js/script.js"></script>
 	<script src="js/menu.js"></script>

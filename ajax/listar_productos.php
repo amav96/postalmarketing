@@ -94,7 +94,7 @@ if($action == 'ajax'){
 						</td>
 						<td>
 				        <a href="#" data-target="#editProductModal" 
-				        class="edit" data-toggle="modal" data-serie='<?php echo $serie?>'
+				        class="edit open-modal" data-toggle="modal" data-serie='<?php echo $serie?>'
 						    data-id_orden='<?php echo $id_orden;?>'
 						    data-identificacion="<?php echo $identificacion ?>"
 						    data-direccion="<?php echo $direccion ?>"
@@ -144,4 +144,10 @@ if($action == 'ajax'){
 		
 	
 ?>          
-		  
+<script>
+	$(".open-modal").click(function(){
+
+$("input[name=edit_id_orden]").val($("#order").text());
+
+});
+</script>	  

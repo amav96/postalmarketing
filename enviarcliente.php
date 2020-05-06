@@ -63,9 +63,8 @@ if(!isset($_SESSION['logged_user'])){
                     <form method="POST" action="correo.php">
                         <div class="form-group">
                             <label for="id_orden">Nro Orden</label>
-                            <input  type="text" name="id_orden"   id="id_orden" 
-                                class="form-control" placeholder="Nro. Orden" style="width:180px;height:38px;" value="<?php if(isset($_SESSION['id_order']))
-							 { echo $_SESSION['id_order']; } ?>" required>
+                            <input  type="text" name="id_orden"   id="ordencliente" 
+                                class="form-control" placeholder="Nro. Orden" style="width:180px;height:38px;" required>
                         </div>
                         <div class="form-group">
                             <label for="identificacion">Identificacion Cliente</label>
@@ -95,6 +94,14 @@ if(!isset($_SESSION['logged_user'])){
 
         </main>
         </section>
+
+        <script>
+	$(".btn-success").click(function(){
+
+$("input[name=id_orden]").val($("#order").text());
+
+});
+</script>
         
         
          

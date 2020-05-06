@@ -123,8 +123,7 @@ $(function(){
 						
 						<div class="form-group">
 							<label><strong>Nro Orden</strong></label>
-							<input type="text" name="id_orden"  id="id_orden" class="form-control"  value="<?php if(isset($_SESSION['id_order']))
-							 { echo $_SESSION['id_order']; } ?>" required>
+							<input type="text" name="id_orden"  id="valueorden" class="form-control" required>
 							
 						</div>
 						
