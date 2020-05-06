@@ -64,7 +64,8 @@ if(!isset($_SESSION['logged_user'])){
                         <div class="form-group">
                             <label for="id_orden">Nro Orden</label>
                             <input  type="text" name="id_orden"   id="ordencliente" 
-                                class="form-control" placeholder="Nro. Orden" style="width:180px;height:38px;" required>
+                                class="form-control" placeholder="Nro. Orden" style="width:180px;height:38px;" value="<?php if(isset($_SESSION['id_order']))
+							 { echo $_SESSION['id_order']; } ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="identificacion">Identificacion Cliente</label>

@@ -87,7 +87,6 @@ SESSION_START();
             </div> 
           </section>
 
-
           <!--tabla generar orden p -->
 
           <?php if ($stat==1): ?>
@@ -95,13 +94,13 @@ SESSION_START();
               <thead>
                 <tr>
                   <th scope='col'>Nro.Orden</th>
+                  </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                 <th id="order"><?= $_SESSION['id_order'];?>
                 </tr>
               </thead>
-              <tdoby>
-                <tr>  
-                  <td id="order"><?= $_SESSION['id_order'];?></td>
-                </tr>
-              </tbody>
             </table>
           <?php endif ?>
         </div>
@@ -139,7 +138,7 @@ SESSION_START();
 	<!-- Delete Modal HTML -->
 	<?php include("html/modal_delete.php");?>
 
-<!--OBTENGO VALOR DE LA SESION DEL LADO DEL SERVIDOR -->
+<!--OBTENGO VALOR DE LA SESION DEL LADO DEL SERVIDOR 
 <script> 
 $(function(){
   var idValueQueNecesito = $('#order').text(); // esto agarra tu numero de orden 
@@ -160,7 +159,7 @@ $(function(){
          $("input[name=edit_id_orden").text(data.edit_id_orden)
   });    
 
-</script>
+</script>-->
 <!-- cerrar sesion despues de cierto tiempo-->
   <script type="text/javascript">
 	function e(q) {
@@ -172,7 +171,7 @@ function inactividad() {
 }
 var t=null;
 function contadorInactividad() {
-    t=setTimeout("inactividad()",900000);
+    t=setTimeout("inactividad()",120000);
 }
 window.onblur=window.onmousemove=function() {
     if(t) clearTimeout(t);

@@ -17,16 +17,18 @@ $(function(){
              return false}
 
         var id_recolector = '<?= $_SESSION['id_recolector']; ?>';
-        var serie = $('#serie').val();
+        var serie = $('#serie').val(); //los # son los id
         var identificacion = $('#identificacion').val();
         var id_orden = $('#id_orden').val();
         var estado = $('#estado').val();
         var horario_rec = $('#horario_rec').val();
-        var cable_hdmi = $('#cable_hdmi').val();
-        var cable_av = $('#cable_av').val();
-        var fuente = $('#fuente').val();
-        var control_1 = $('#control_1').val();
+        var cable_hdmi = document.forms["add_product"]["cable_hdmi"].value;
+        var cable_av= document.forms["add_product"]["cable_av"].value;
+	    var fuente = document.forms["add_product"]["fuente"].value;
+        var control_1= document.forms["add_product"]["control_1"].value;
         var adicional = $('#adicional').val();
+
+	  
 
         $.ajax({
             type:"POST",
@@ -50,7 +52,8 @@ $(function(){
                 success:function(respuesta){
                     $('#imagen').hide();
                     if(respuesta==1){
-                        $('#mensajes').html('<div class="alert alert-info">Enviado correctamente');
+						$('#mensajes').html('<div class="alert alert-info">Enviado correctamente');
+						
                     }
                     else{
                         $('#mensajes').html('<div class="alert alert-danger">Verificar Identificación Cliente');
@@ -73,30 +76,30 @@ $(function(){
 						<div class="form-group">
 						<label><strong>Cable HDMI</strong></label>
 							<div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="cable_hdmi" name="cable_hdmi" value="Si" checked>Si
-                            <input type="radio" class="custom-control-input" id="cable_hdmi" name="cable_hdmi" value="No">No
+                            <input type="radio" class="custom-control-input"  name="cable_hdmi" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input"  name="cable_hdmi" value="No">No
                           </div>
 						</div>
 						<div class="form-group">
 							<label><strong>Cable AV</strong></label>
 							<div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="cable_av" name="cable_av" value="Si" checked>Si
-                            <input type="radio" class="custom-control-input" id="cable_av" name="cable_av" value="No">No
+                            <input type="radio" class="custom-control-input"  name="cable_av" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input"  name="cable_av" value="No">No
                           </div>
 						</div>
 						
 						<div class="form-group">
 							<label><strong>Fuente</strong></label>
 							<div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="fuente" name="fuente" value="Si" checked>Si
-                            <input type="radio" class="custom-control-input" id="fuente" name="fuente" value="No">No
+                            <input type="radio" class="custom-control-input"  name="fuente" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input"  name="fuente" value="No">No
                           </div>
 						</div>
 						<div class="form-group">
 							<label><strong>Control</strong></label>
 							<div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="control_1" name="control_1" value="Si" checked>Si
-                            <input type="radio" class="custom-control-input" id="control_1" name="control_1" value="No">No
+                            <input type="radio" class="custom-control-input"  name="control_1" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input"  name="control_1" value="No">No
                           </div>
 						</div>
 						<div class="form-group">
@@ -123,7 +126,8 @@ $(function(){
 						
 						<div class="form-group">
 							<label><strong>Nro Orden</strong></label>
-							<input type="text" name="id_orden"  id="valueorden" class="form-control" required>
+							<input type="text" name="id_orden"  id="id_orden" class="form-control"  value="<?php if(isset($_SESSION['id_order']))
+							 { echo $_SESSION['id_order']; } ?>" required>
 							
 						</div>
 						
@@ -138,9 +142,15 @@ $(function(){
 						</div>
 					</div>
 					<div class="modal-footer">
+					   <div class="form-group">
+					   <div id="alert"><img id="imagen" src="img/cargando.gif" alt="">
+						<span id="mensajes"></span>
+					   </div>
+					   </div>
 						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
 						<input type="submit" id="enviar" class="btn btn-success" value="Guardar datos">
-						<div id="alert"><img id="imagen" src="img/cargando.gif" alt=""><span id="mensajes"></span></div>
+					   
+						
 					</div>
 				</form>
 			</div>

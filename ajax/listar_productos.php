@@ -10,7 +10,7 @@ if($action == 'ajax'){
 	$query =$_REQUEST['query'];
 	
 	$tables="express";
-	$campos="id,serie,id_orden,identificacion,nombre_cliente,direccion,localidad,cable_hdmi,cable_av,fuente,control_1,estado_rec,telefono2";
+	$campos="id,serie,id_orden,identificacion,nombre_cliente,direccion,localidad,cable_hdmi,cable_av,fuente,control_1,estado_rec,telefono2,empresa";
 	
 	
 	//include 'pagination.php'; //include pagination file
@@ -28,7 +28,7 @@ if($action == 'ajax'){
 	//consulta principal para recuperar los datos
 		$acentos = $con->query("SET NAMES 'utf8'");
 		
-		$sql1="SELECT id,serie,id_orden,identificacion,nombre_cliente,direccion,localidad,cable_hdmi,cable_av,fuente,control_1,estado_rec,telefono2
+		$sql1="SELECT id,serie,id_orden,identificacion,nombre_cliente,direccion,localidad,cable_hdmi,cable_av,fuente,control_1,estado_rec,telefono2,empresa
 		FROM express WHERE 
 		identificacion='$query' or serie='$query'";
 		$resultado = $con->query($sql1);
@@ -50,6 +50,8 @@ if($action == 'ajax'){
 					<tr>
 					<th class='text-center'></th>
 					<th class='text-center'></th>
+					<th class='text-center'></th>
+					<th class='text-center'></th>
                         <th>Serie </th>
 						<th class='text-center'>Nro Orden</th>
 						<th>Identificación </th>
@@ -62,14 +64,17 @@ if($action == 'ajax'){
 						<th class='text-center'>Fuente</th>
 						<th class='text-right'>Control</th>
 						<th class='text-right'>Telefono</th>
+						<th class='text-right'>Empresa</th>
 						<th></th>
 					</tr>
 				</thead>
-				<tbody>	
+				<tbody>
 						<?php 
 						$finales=0;
 						while($row = mysqli_fetch_array($query)){	
+
 							$id=$row['id'];
+							$telefono2=$row['telefono2'];
 							$serie=$row['serie'];
 							$id_orden=$row['id_orden'];
 							$identificacion=$row['identificacion'];
@@ -80,17 +85,26 @@ if($action == 'ajax'){
 							$cable_hdmi=$row['cable_hdmi'];
 							$cable_av=$row['cable_av'];
 							$fuente=$row['fuente'];	
-							$control_1=$row['control_1'];	
-							$telefono2=$row['telefono2'];					
+							$control_1=$row['control_1'];
+							$empresa=$row['empresa'];	
+												
 							
 						?>	
 						
 						<tr class="<?php echo $text_class;?>">
 						<td>
-						<a href="https://api.whatsapp.com/send?phone=+54<?php echo $telefono2 ?>&text=
-	En%2015%20minutos%20aprox.%20llego%20a%20tu%20domicilio.%20¿Hay%20gente%20para%20entregar%20los%20decos?.%20Avisame,
-	%20no%20puedo%20demorarme,%20ni%20esperar,%20tengo%20recorrido%20Programado.&source
-						=&data=&app_absent=" class="fab fa-whatsapp"></a>
+						<a href="https://api.whatsapp.com/send?phone=+549<?php echo $telefono2 ?>&text=<?php echo $identificacion ?>%20<?php echo $nombre_cliente ?>%20*Nos*%20*contactamos*%20*de*%20*<?php echo $empresa ?>*%20,para%20la%20*devolución*%20del/los%20*Equipos/s*%20dados%20de%20*Baja*,%20una%20unidad%20esta%20proxima%20a%20su%20domicilio%20*<?php echo $direccion ?>*%20para%20retiro%20de%20los%20mismos.%20Solicitamos%20nos%20responda%20este%20mensaje%20si%20tiene%20los%20equipos%20<?php echo $serie ?>%20para%20retirar,%20caso%20contrario%20contactece%20por%20este%20medio%20al%20*WP*%20*54911*%20*3874*%20*1529*%20*o*%20*11-3221-3774*%20*o*%20*por*%20*email*%20*a*%20*pactado2@postalmarketing.com.ar*&source=&data=&app_absent="
+						 target="_blank" class="fab fa-whatsapp" style="color:#2E9AFE;"></a>
+						</td>
+						<td>
+						
+						<a href="https://api.whatsapp.com/send?phone=+549<?php echo $telefono2 ?>&text=*<?php echo $identificacion ?>*%20*<?php echo $nombre_cliente ?>*%20En%2015%20minutos%20aprox.%20Llego%20a%20tu%20domicilio.%20Hay%20gente%20para%20entregar%20el/los%20equipos?.%20*Avisame,*%20*no*%20*puedo*%20*demorarme*%20*ni*%20*esperar,*%20*tengo*%20*recorrido*%20*Programado.*&source=&data=&app_absent="
+						 target="_blank" class="fas fa-car " style="color:#2E9AFE;"></a>
+						</td>
+						<td>
+						
+						<a href="mailto:alvaroamav96@gmail.com?Subject=<?php echo $empresa ?>%20AVISO%201%20RECUPERACIÓN%20EQUIPOS%20&body=<?php echo $identificacion ?>%20<?php echo $nombre_cliente ?>.%20Nos%20contactamos%20de%20<?php echo $empresa ?>%20,para%20la%20devolución%20del/los%20Equipos/s%20dados%20de%20Baja,%20una%20unidad%20esta%20proxima%20a%20su%20domicilio%20<?php echo $direccion ?>%20para%20retiro%20de%20los%20mismos.%20Solicitamos%20nos%20responda%20este%20mensaje%20si%20tiene%20los%20equipos%20<?php echo $serie ?>%20para%20retirar,%20caso%20contrario%20contactece%20por%20este%20medio%20al%20WP%2054911%203874%201529%20o%2011-3221-3774%20o%20por%20email%20a%20pactado2@postalmarketing.com.ar"
+						 target="_blank" class="fas fa-envelope" style="color:#2E9AFE;"></a>
 						</td>
 						<td>
 				        <a href="#" data-target="#editProductModal" 
@@ -106,8 +120,9 @@ if($action == 'ajax'){
 						    data-id="<?php echo $id;?>">
 							
 																											  
-								<i id="editar" class="fas fa-arrow-alt-circle-up">Recuperar</i></a>
+								<i id="editar" class="fas fa-file-invoice-dollar" style="color:green;">
 							</td>
+							
 							<td class='text-center'><?php echo $serie;?></td>
 							<td class='text-center'><?php echo $id_orden;?></td>
 							<td ><?php echo $identificacion;?></td>
@@ -119,6 +134,8 @@ if($action == 'ajax'){
 							<td class='text-center' ><?php echo $cable_av;?></td>
 							<td class='text-right'><?php echo $fuente;?></td>
 							<td class='text-right'><?php echo $control_1;?></td>
+							<td class='text-center'><?php echo $telefono2;?></td>
+							<td class='text-right'><?php echo $empresa;?></td>
 							
 						</tr>
 						<?php }?>

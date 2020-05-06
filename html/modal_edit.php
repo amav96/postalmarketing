@@ -13,30 +13,30 @@
 						<div class="form-group">
 							<label><strong>Cable HDMI</strong></label>
 							<div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="edit_cable_hdmi" name="edit_cable_hdmi" value="Si" checked>Si
-                            <input type="radio" class="custom-control-input" id="edit_cable_hdmi" name="edit_cable_hdmi" value="No">No
+                            <input type="radio" class="custom-control-input"  name="edit_cable_hdmi" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input"  name="edit_cable_hdmi" value="No">No
                           </div>
 						</div>
 						<div class="form-group">
 							<label><strong>Cable AV</strong></label>
 							<div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="edit_cable_av" name="edit_cable_av" value="Si" checked>Si
-                            <input type="radio" class="custom-control-input" id="edit_cable_av" name="edit_cable_av" value="No">No
+                            <input type="radio" class="custom-control-input"  name="edit_cable_av" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input"  name="edit_cable_av" value="No">No
                           </div>
 						</div>
 						
 						<div class="form-group">
 							<label><strong>Fuente</strong></label>
 							<div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="edit_fuente" name="edit_fuente" value="Si" checked>Si
-                            <input type="radio" class="custom-control-input" id="edit_fuente" name="edit_fuente" value="No">No
+                            <input type="radio" class="custom-control-input"  name="edit_fuente" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input"  name="edit_fuente" value="No">No
                           </div>
 						</div>
 						<div class="form-group">
 							<label><strong>Control</strong></label>
 							<div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="edit_control_1" name="edit_control_1" value="Si" checked>Si
-                            <input type="radio" class="custom-control-input" id="edit_control_1" name="edit_control_1" value="No">No
+                            <input type="radio" class="custom-control-input"  name="edit_control_1" value="Si" checked>Si
+                            <input type="radio" class="custom-control-input"  name="edit_control_1" value="No">No
                           </div>
 						</div>
 						<label><strong>Serie</strong></label>
@@ -68,7 +68,7 @@
 						
 						<div class="form-group">
 							
-							<input type="hidden" class="form-control" type="text" name="horario_rec" id="horario_rec"
+							<input type="hidden" class="form-control" type="text" name="horario_rec"
 							 value="<?php date_default_timezone_set('America/Argentina/Buenos_Aires'); echo date("Y-m-d H:i:s");?>" readonly>
 						</div>
 						<div class="form-group">
