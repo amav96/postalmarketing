@@ -54,6 +54,27 @@ if(!isset($_SESSION['logged_user'])){
 <div style="text-align:center;";>       
 <h1> ¡Enviado exitosamente! </h1>
 </div>
+<div class="text-center">
+    	<div class="container">
+			<div class="abs-center">
+      <div class="form-group">
+      <form class="form-horizontal" action="datoscliente.php" method="POST">
+      <input type="submit" name="seguir" value="Volver Atras" class="btn btn-info"> 
+      </form>
+      </div>
+      </div>
+     </div>
+    </div>  
+    <div class="text-center">
+    	<div class="container">
+			<div class="abs-center">
+      
+      <form class="form-horizontal" action="cerrar_sesion.php" method="POST">
+      <input type="submit" name="seguir" value="Finalizar" class="btn btn-info"> 
+      </form>
+      </div>
+     </div>
+    </div>  
 <script src="js/script.js"></script>
 	<script src="js/menu.js"></script>
 

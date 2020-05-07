@@ -30,7 +30,7 @@ if(!isset($_SESSION['logged_user'])){
   <link rel="stylesheet" href="css/flexbox.css">
   
   
-  <link href="../fonts/styles.css" rel="stylesheet">
+  <link href="fonts/styles.css" rel="stylesheet">
  
  </head>
 <body>
@@ -44,9 +44,8 @@ if(!isset($_SESSION['logged_user'])){
       <nav class="nav" id="nav">
       <ul class="menu">
         <li class="menu__item"><a class="menu__link select" href="index.php">INICIO</a></li>
-        <li class="menu__item"><a class="menu__link select" href="nosotros.php">EMPRESA</a></li>
-        <li class="menu__item"><a class="menu__link select" href="cobertura.php">COBERTURA</a></li>
-        <li class="menu__item"><a class="menu__link select" href="formulario.php">PAQUETERIA</a></li>
+        <li class="menu__item"><a class="menu__link select" href="datoscliente.php">SEGUIR OPERANDO</a></li>
+        <li class="menu__item"><a class="menu__link select" href="datoscliente.php">VOLVER ATRAS</a></li>
         <li class="menu__item"><a class="menu__link select" href="cerrar_sesion.php">CERRAR SESION</a></li>
       </ul>
     </nav>
@@ -62,15 +61,14 @@ if(!isset($_SESSION['logged_user'])){
                 <div class="col-12">
                     <form method="POST" action="correo.php">
                         <div class="form-group">
-                            <label for="id_orden">Nro Orden</label>
-                            <input  type="text" name="id_orden"   id="ordencliente" 
-                                class="form-control" placeholder="Nro. Orden" style="width:180px;height:38px;" value="<?php if(isset($_SESSION['id_order']))
+                            <label>Nro Orden</label>
+                            <input  type="text" name="id_orden" class="form-control" placeholder="Nro. Orden" style="width:180px;height:38px;" value="<?php if(isset($_SESSION['id_order']))
 							 { echo $_SESSION['id_order']; } ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="identificacion">Identificacion Cliente</label>
                             <input type="text" name="identificacion_cliente"  id="identificacion_cliente"
-                                class="form-control" placeholder="Identificacion Cte" style="width:180px;height:38px;"  required> 
+                                class="form-control" placeholder="Identificacion Cte" style="width:180px;height:38px;" required> 
                         </div>
                         <div class="form-group">
                             <label for="correo">Correo</label>
@@ -86,7 +84,7 @@ if(!isset($_SESSION['logged_user'])){
                             </select>
                         </div>
                         <div class="form-group">
-                            <input class="btn-success btn" type="submit" value ="Enviar" name="enviar">
+                            <input class="btn btn-info" type="submit" value ="Enviar" name="enviar">
                                 
                         </div>
                     </form>
@@ -109,7 +107,7 @@ $("input[name=id_orden]").val($("#order").text());
          
          
 
-	<script src="../js/menu.js"></script>
+	<script src="js/menu.js"></script>
 
 </body>
 </html               

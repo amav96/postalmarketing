@@ -171,7 +171,7 @@ function inactividad() {
 }
 var t=null;
 function contadorInactividad() {
-    t=setTimeout("inactividad()",120000);
+    t=setTimeout("inactividad()",150000);
 }
 window.onblur=window.onmousemove=function() {
     if(t) clearTimeout(t);
