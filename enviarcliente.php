@@ -88,19 +88,19 @@ if(!isset($_SESSION['logged_user'])){
                                 
                         </div>
                     </form>
+                    <div class="abs-center">
+                    <div class="form-group">
+                     <form method="POST" action="datoscliente.php">
+                     <input class="btn btn-danger" type="submit" value ="Volver" name="enviar">
+                        </form>
+                        </div>
                 </div>
             </div>
 
         </main>
         </section>
 
-        <script>
-	$(".btn-success").click(function(){
-
-$("input[name=id_orden]").val($("#order").text());
-
-});
-</script>
+       
         
         
          

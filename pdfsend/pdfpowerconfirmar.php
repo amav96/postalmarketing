@@ -14,7 +14,8 @@ $id_orden=$_POST['id_orden'];
 $acentos = $conn->query("SET NAMES 'utf8'");  
 $productos ="SELECT e.empresa,a.serie,a.tarjeta,e.direccion,a.cable_hdmi,
 a.cable_av,a.fuente,a.control_1,a.id_orden,a.identificacion,e.nombre_cliente,
-a.horario_rec,e.password_rec,e.id_recolector_2,a.estado_rec,adicional FROM express e INNER JOIN autorizar a on e.identificacion=a.identificacion
+a.horario_rec,e.password_rec,a.password_rec,e.id_recolector_2,a.id_recolector_2,a.estado_rec,a.adicional,
+e.otrosaccesorios,a.otrosaccesorios FROM express e INNER JOIN autorizar a on e.identificacion=a.identificacion
  WHERE a.id_orden = '$id_orden' and a.identificacion='$identificacion'  GROUP BY a.serie;";
 $acentos = $conn->query("SET NAMES 'utf8'");
 $result = $conn->query($productos);
@@ -61,7 +62,7 @@ if($productos2= $result->fetch_array())
     $pdf->Cell(-53,4,'',0,0,'C');
     $pdf->Cell(100,6,'Remito Nro. Orden:',0,0,'C');
     $pdf->Cell(-24,6,'',0,0,'C');
-    $pdf->Cell(1,6,$productos2['id_orden'],0,0,'C');
+    $pdf->Cell(4.5,6,$productos2['id_orden'],0,0,'C');
     $pdf->Cell(-25,6,'',0,0,'C');
     $pdf->Ln(2.3);
     $pdf->Cell(-54.9,6,'',0,0,'C');
@@ -91,16 +92,16 @@ if($productos2= $result->fetch_array())
     $pdf->Ln(2);
     $pdf->Cell(-8.6,7,'Fecha Remito:',0,0,'C');
     $pdf->Cell(-1,6,'',0,0,'C');
-    $pdf->Cell(66,7,date('d/m/Y'),0,0,'C');
+    $pdf->Cell(67.5,7,date('d/m/Y'),0,0,'C');
     $pdf->Ln(2);
     $pdf->Cell(-11.8,7,'Estado:',0,0,'C');
     $pdf->Cell(2.5,6,'',0,0,'C');
-    $pdf->Cell(66,7,$productos2['estado'],0,0,'C');
+    $pdf->Cell(67,7,$productos2['estado_rec'],0,0,'C');
     $pdf->Ln(2);
     
     $pdf->Cell(-13,7,'Otro:',0,0,'C');
     $pdf->Cell(3.5,6,'',0,0,'C');
-    $pdf->Cell(66,7,$productos2['adicional'],0,0,'C');
+    $pdf->Cell(67.5,7,$productos2['adicional'],0,0,'C');
     $pdf->Ln(0);
     $pdf->SetLineWidth(0.5);
     $pdf->SetDrawColor(134,203,236);
@@ -111,7 +112,7 @@ if($productos2= $result->fetch_array())
     $pdf->Cell(6,6,'',0,0,'C');
     $pdf->Cell(80,7,$productos2['id_recolector_2'],0,0,'C');
     $pdf->Cell(-94,6,'',0,0,'C');
-    $pdf->Cell(66,7,$productos2['password_rec'],0,0,'C');
+    $pdf->Cell(63.5,7,$productos2['password_rec'],0,0,'C');
 
     $pdf->Ln(2);
     $pdf->Cell(-46.2,6,'',0,0,'C');
@@ -131,21 +132,23 @@ if($productos2= $result->fetch_array())
     $pdf->Cell(-8.5,6,'',0,0,'L');
     $pdf->Cell(13,4,'Serie',1,0,'C',1);
     
-    $pdf->Cell(13,4,'Tarjeta',1,0,'C',1);
-    $pdf->Cell(14.5,4,'Cable HDMI',1,0,'C',1);
-    $pdf->Cell(12,4,'Cable AV',1,0,'C',1);
+    $pdf->Cell(10,4,'Tarjeta',1,0,'C',1);
+    $pdf->Cell(11,4,'Cable HDMI',1,0,'C',1);
+    $pdf->Cell(11,4,'Cable AV',1,0,'C',1);
     
-    $pdf->Cell(9,4,'Fuente',1,0,'C',1);
-    $pdf->Cell(10,4,'Control',1,0,'C',1);
+    $pdf->Cell(8,4,'Fuente',1,0,'C',1);
+    $pdf->Cell(8,4,'Control',1,0,'C',1);
+    $pdf->Cell(11,4,'Otros',1,0,'C',1);
     
     $pdf->Ln(4.3);
     $pdf->Cell(-8.4,6,'',0,0,'C');
     $pdf->Cell(11,3,$productos2['serie'],0,0,'C',1);
-    $pdf->Cell(16,3,$productos2['tarjeta'],0,0,'C',1);
-    $pdf->Cell(12,3,$productos2['cable_hdmi'],0,0,'C',1);
-    $pdf->Cell(16,3,$productos2['cable_av'],0,0,'C',1);
-    $pdf->Cell(3.5,3,$productos2['fuente'],0,0,'C',1);
-    $pdf->Cell(12.8,3,$productos2['control_1'],0,0,'C',1);
+    $pdf->Cell(14.5,3,$productos2['tarjeta'],0,0,'C',1);
+    $pdf->Cell(6,3,$productos2['cable_hdmi'],0,0,'C',1);
+    $pdf->Cell(15,3,$productos2['cable_av'],0,0,'C',1);
+    $pdf->Cell(4,3,$productos2['fuente'],0,0,'C',1);
+    $pdf->Cell(12.5,3,$productos2['control_1'],0,0,'C',1);
+    $pdf->Cell(8.8,3,$productos2['otrosaccesorios'],0,0,'C',1);
     
 
     $pdf->SetY(42);
@@ -178,12 +181,12 @@ if($productos2= $result->fetch_array())
     $pdf->SetFont('Arial','B',3);
     $pdf->Cell(-8.4,6,'',0,0,'C');
     $pdf->Cell(11,3,$productos2['serie'],0,0,'C',1);
-    $pdf->Cell(16,3,$productos2['tarjeta'],0,0,'C',1);
-    $pdf->Cell(12,3,$productos2['cable_hdmi'],0,0,'C',1);
-    $pdf->Cell(16,3,$productos2['cable_av'],0,0,'C',1);
-    $pdf->Cell(3.5,3,$productos2['fuente'],0,0,'C',1);
-    $pdf->Cell(12.8,3,$productos2['control_1'],0,0,'C',1);
-    
+    $pdf->Cell(14.5,3,$productos2['tarjeta'],0,0,'C',1);
+    $pdf->Cell(6,3,$productos2['cable_hdmi'],0,0,'C',1);
+    $pdf->Cell(15,3,$productos2['cable_av'],0,0,'C',1);
+    $pdf->Cell(4,3,$productos2['fuente'],0,0,'C',1);
+    $pdf->Cell(12.5,3,$productos2['control_1'],0,0,'C',1);
+    $pdf->Cell(8.8,3,$productos2['otrosaccesorios'],0,0,'C',1);
    
    
     $pdf->Ln(3.5);

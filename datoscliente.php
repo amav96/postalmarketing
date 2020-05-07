@@ -65,16 +65,18 @@ SESSION_START();
   <div class="container" style="position:inherit;">
     <div class="table-wrapper" style="position:inherit;">
       <div class="table-title" style="position:inherit;">
-        <div class="row" style="position:inherit;">
+        <div class="row" style="position:inherit;color:black;">
           <div class="col-sm-6" style="position:inherit;">
             <b><h2><?= $pagina; ?></b></h2>
 					</div>
           <br>
           <!--formulario generar orden -->
           <section>
+          <div class="form-group">
             <div class="form-group mx-sm-3 mb-2">
               <a href="#addProductModal" class="btn btn-success" data-toggle="modal" style="width:150px;height:40px;"><i class="material-icons" >&#xE147;</i> <span>Agregar Equipo</span></a>
-            </div>          
+            </div>   
+</div>       
             <div class="form-group mx-sm-3 mb-2">
             <!--enviado por ruta ACTI/-->
               <form  action="<?= ACTI.$direc; ?>" method="POST">
@@ -171,7 +173,7 @@ function inactividad() {
 }
 var t=null;
 function contadorInactividad() {
-    t=setTimeout("inactividad()",150000);
+    t=setTimeout("inactividad()",800000);
 }
 window.onblur=window.onmousemove=function() {
     if(t) clearTimeout(t);

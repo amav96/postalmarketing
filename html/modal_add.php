@@ -25,7 +25,8 @@ $(function(){
         var cable_hdmi = document.forms["add_product"]["cable_hdmi"].value;
         var cable_av= document.forms["add_product"]["cable_av"].value;
 	    var fuente = document.forms["add_product"]["fuente"].value;
-        var control_1= document.forms["add_product"]["control_1"].value;
+		var control_1= document.forms["add_product"]["control_1"].value;
+		var otrosaccesorios= document.forms["add_product"]["otrosaccesorios"].value;
         var adicional = $('#adicional').val();
 
 	  
@@ -43,7 +44,8 @@ $(function(){
                    'cable_av':cable_av,
                    'fuente':fuente,
                    'control_1':control_1,
-                   'adicional':adicional},
+				   'adicional':adicional,
+				   'otrosaccesorios':otrosaccesorios},
                 beforeSend: function(){
                     $('#imagen').show();
                     $('#mensajes').html('Procesando datos...');
@@ -103,6 +105,12 @@ $(function(){
                           </div>
 						</div>
 						<div class="form-group">
+							<label><strong>Otro Accesorio/Opcional</strong></label>
+							
+                            <input type="text" class="form-control"  name="otrosaccesorios" id="otrosaccesorios">
+                            
+                          </div>
+						<div class="form-group">
 						  <label><strong>Estado</strong></label>
 					        <select type="text" name="estado" id="estado" class="form-control" required>
 	                        <option value="A-CONFIRMAR">A CONFIRMAR</option>
@@ -147,7 +155,7 @@ $(function(){
 						<span id="mensajes"></span>
 					   </div>
 					   </div>
-						<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
+						<input type="button" class="btn btn-danger" data-dismiss="modal" value="Salir">
 						<input type="submit" id="enviar" class="btn btn-success" value="Guardar datos">
 					   
 						

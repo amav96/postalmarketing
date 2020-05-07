@@ -12,7 +12,7 @@ if(!isset($_SESSION['administracion'])){
    $seriea=$_POST['seriea'];
    $acentos = $conn->query("SET NAMES 'utf8'");    
    $query=mysqli_query($conn,"SELECT estado_pac,horario_pac,direccion,localidad,codigo_postal,id_orden,serie,identificacion,tarjeta,nombre_cliente,
-   horario_rec,estado_rec,cable_hdmi,cable_av,fuente,control_1, id_recolector
+   horario_rec,estado_rec,cable_hdmi,cable_av,fuente,control_1, id_recolector,otrosaccesorios
     FROM express where serie='$seriea'");
    
  if($seriea=$query)
@@ -41,6 +41,8 @@ if(!isset($_SESSION['administracion'])){
      <th scope='col'>Control</th>
      <th scope='col'>Estado Pac</th>
      <th scope='col'>Fecha Pac</th>
+     <th scope='col'>Otros Accesorios</th>
+
       
    </tr>
    </thead>
@@ -70,16 +72,15 @@ if(!isset($_SESSION['administracion'])){
     <td>".$consulta['control_1']."</td>
     <td>".$consulta['estado_pac']."</td>
     <td>".$consulta['horario_pac']."</td>
+    <td>".$consulta['otrosaccesorios']."</td>
     
-   
  </tr>
  </tbody>
  
  </div>
  
- ";
- }
- 
+    ";
+  }
  include("../cerrar_conexion.php");
  }
 //BUSCAR POR EMAIL  PANEL
@@ -118,6 +119,7 @@ if($emaila=$query)
     <th scope='col'>Control</th>
     <th scope='col'>Estado Pac</th>
     <th scope='col'>Horario Pac</th>
+    
      
   </tr>
   </thead>
@@ -148,6 +150,7 @@ echo
    <td>".$consulta['control_1']."</td>
    <td>".$consulta['estado_pac']."</td>
    <td>".$consulta['horario_pac']."</td>
+  
    
   
 </tr>
@@ -482,7 +485,7 @@ if(isset($_POST['buscar']))
   $identificacion_retiro=$_POST['identificacion_retiro'];
   $acentos = $conn->query("SET NAMES 'utf8'");    
   $query=mysqli_query($conn,"SELECT id_orden,serie,identificacion,tarjeta,
-  horario_rec,estado_rec,cable_hdmi,cable_av,fuente,control_1, id_recolector_2
+  horario_rec,estado_rec,cable_hdmi,cable_av,fuente,control_1, id_recolector_2,otrosaccesorios
    FROM autorizar where identificacion='$identificacion_retiro'");
   
 if($identificacion_retiro=$query)
@@ -506,6 +509,7 @@ if($identificacion_retiro=$query)
     <th scope='col'>Cable AV</th>
     <th scope='col'>Fuente</th>
     <th scope='col'>Control</th>
+    <th scope='col'>Otros Accesorios</th>
      
   </tr>
   </thead>
@@ -531,6 +535,7 @@ echo
    <td>".$consulta['cable_av']."</td>
    <td>".$consulta['fuente']."</td>
    <td>".$consulta['control_1']."</td>
+   <td>".$consulta['otrosaccesorios']."</td>
    
   
 </tr>
@@ -550,7 +555,7 @@ if(isset($_POST['buscarorden']))
   $id_orden=$_POST['id_orden'];
   $acentos = $conn->query("SET NAMES 'utf8'");    
   $query=mysqli_query($conn,"SELECT id_orden,serie,identificacion,tarjeta,
-  horario_rec,estado_rec,cable_hdmi,cable_av,fuente,control_1, id_recolector_2,horario_rec
+  horario_rec,estado_rec,cable_hdmi,cable_av,fuente,control_1, id_recolector_2,horario_rec,otrosaccesorios
    FROM autorizar where id_orden='$id_orden'");
   
 if($identificacion_retiro=$query)
@@ -574,6 +579,7 @@ if($identificacion_retiro=$query)
     <th scope='col'>Cable AV</th>
     <th scope='col'>Fuente</th>
     <th scope='col'>Control</th>
+    <th scope='col'>Otros Accesorios</th>
      
   </tr>
   </thead>
@@ -599,6 +605,7 @@ echo
    <td>".$consulta['cable_av']."</td>
    <td>".$consulta['fuente']."</td>
    <td>".$consulta['control_1']."</td>
+   <td>".$consulta['otrosaccesorios']."</td>
    
   
 </tr>
@@ -619,7 +626,7 @@ if(isset($_POST['horario_rec']))
   
   $acentos = $conn->query("SET NAMES 'utf8'");    
   $query=mysqli_query($conn,"SELECT id_orden,serie,identificacion,tarjeta,
-  horario_rec,estado_rec,cable_hdmi,cable_av,fuente,control_1, id_recolector_2,horario_rec
+  horario_rec,estado_rec,cable_hdmi,cable_av,fuente,control_1, id_recolector_2,horario_rec,otrosaccesorios
    FROM autorizar where horario_rec like '%$horario_rec%'");
   
 if($horario_rec=$query)
@@ -643,6 +650,8 @@ if($horario_rec=$query)
     <th scope='col'>Cable AV</th>
     <th scope='col'>Fuente</th>
     <th scope='col'>Control</th>
+    <th scope='col'>Otros Accesorios</th>
+    
     
      
   </tr>
@@ -669,6 +678,7 @@ echo
    <td>".$consulta['cable_av']."</td>
    <td>".$consulta['fuente']."</td>
    <td>".$consulta['control_1']."</td>
+   <td>".$consulta['otrosaccesorios']."</td>
    
    
   
@@ -701,7 +711,9 @@ if(isset($_POST['consultando']))
              cable_hdmi,
              cable_av,
              fuente,
-             control_1
+             control_1,
+             otrosaccesorios,
+             id_orden
 from express WHERE id_recolector_2='$reco1' AND horario_rec
 LIKE '%$fecha1%'  
 UNION SELECT estado_rec,
@@ -715,7 +727,9 @@ UNION SELECT estado_rec,
              cable_hdmi,
              cable_av,
              fuente,
-             control_1
+             control_1,
+             otrosaccesorios,
+             id_orden
 FROM autorizar
 WHERE id_recolector_2='$reco1' 
 AND horario_rec LIKE '%$fecha1%'");
@@ -729,10 +743,10 @@ AND horario_rec LIKE '%$fecha1%'");
       <table class='table table-striped table-hover'>
 <thead>
     <tr>
-    
     <th scope='col'>Estado</th>
     <th scope='col'>Recolector</th>
     <th scope='col'>Fecha</th>
+    <th scope='col'>Orden</th>
     <th scope='col'>Identificacion</th>
     <th scope='col'>Nombre Cliente</th>
     <th scope='col'>Serie</th>
@@ -742,6 +756,7 @@ AND horario_rec LIKE '%$fecha1%'");
     <th scope='col'>Cable AV</th>
     <th scope='col'>Fuente</th>
     <th scope='col'>Control</th>
+    <th scope='col'>Otros Accesorios</th>
     
 
   </tr>
@@ -757,6 +772,7 @@ AND horario_rec LIKE '%$fecha1%'");
           <td>".$consulta['estado_rec']."</td>  
           <td>".$consulta['id_recolector_2']."</td>
           <td>".$consulta['horario_rec']."</td>
+          <td>".$consulta['id_orden']."</td>
           <td>".$consulta['identificacion']."</td>
           <td>".$consulta['nombre_cliente']."</td>
           <td>".$consulta['serie']."</td>
@@ -766,6 +782,7 @@ AND horario_rec LIKE '%$fecha1%'");
           <td>".$consulta['cable_av']."</td>
           <td>".$consulta['fuente']."</td>
           <td>".$consulta['control_1']."</td>
+          <td>".$consulta['otrosaccesorios']."</td>
        </tr>
        </tbody>
        </div>
@@ -775,4 +792,5 @@ AND horario_rec LIKE '%$fecha1%'");
 
 include("../cerrar_conexion.php");
  }
+
 ?>

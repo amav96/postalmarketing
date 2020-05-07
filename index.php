@@ -9,18 +9,19 @@
 
   <!-- vinculacion con estilo css -->
  
-  
+  <link href="css/contenedor.css" rel="stylesheet">
   <link href="fonts/styles.css" rel="stylesheet">
   <link rel="stylesheet" href="css/estilos.css">
   <link rel="stylesheet" href="css/logo.css">
   <link rel="stylesheet" href="css/what.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
  
  </head>
 <body>
 	<div>
 	<header class="header">
 		<div class="contenedor">
-			<img src="img/logo.png" class="info__logo">
+			<img src="img/logo.png" class="info__logo contenedormove">
 			<span class="icon-menu" id="btn-menu"></span>
 			<nav class="nav" id="nav">
 			<ul class="menu">
@@ -28,7 +29,7 @@
 				<li class="menu__item"><a class="menu__link" href="nosotros.php">EMPRESA</a></li>
 				<li class="menu__item"><a class="menu__link" href="cobertura.php">COBERTURA</a></li>
 				<li class="menu__item"><a class="menu__link" href="login/loginadm.php">ADMINISTRACIÓN</a></li>
-				<li class="menu__item"><a class="menu__link" href="administraciontotal/index.php">ADMINISTRACIÓN TOTAL</a></li>
+				<!--<li class="menu__item"><a class="menu__link" href="administraciontotal/index.php">ADMINISTRACIÓN TOTAL</a></li>-->
 				<li class="menu__item"><a class="menu__link" href="login/logincliente.php">RECOLECTOR</a></li>
 				<li class="menu__item"><a class="menu__link" href="login/logincupon.php">CLIENTE</a></li>
 				
@@ -39,10 +40,10 @@
 <div class="banner">
 	<img src="img/2.jpg" alt="" class="banner__img"></a>
 	<div class="contenedor">
-		<h2 class="banner__titulo">Postal Marketing</h2>
+		<h2 class="banner__titulo" >Postal Marketing</h2>
 		<p class="banner__txt">EXPRESS</p>
 		<div>
-		<img src="img/hombre.svg" alt="" class="estylo" style="position:relative;top:-15px;width:70px;heigth:70px;"></a>
+		<img id="cohete" src="img/hombre.svg" alt="" class="estylo" style="position:relative;top:-15px;width:70px;heigth:70px;"></a>
 </div>
 	</div>
 	
@@ -52,11 +53,11 @@
 	<div class="contenedor">
 <section class="info">
 	<article class="info__columna">
-		<a href="nosotros.php"><img src="img/cohete.svg" alt="" class="info__img"></a>
+		<a href="nosotros.php"><img src="img/cohete.svg" alt="" class="info__img contenedormove"></a>
 		<h2 class="info__titulo"> Logistica</h2>
 		<p class="info__txt">Distribuciones masivas al destinatario, servicio fullfilment o finishing. </p>
 		<div>
-			<a href="https://api.whatsapp.com/send?phone=541131366295&text=Hola,%20me%20quisiera%20poner%20en%20contacto%20con%20ustedes.&source=&data=&app_absent=" target="_blank"><img src="img/what1.png" alt="" class="estylo"></a>
+			<a href="https://api.whatsapp.com/send?phone=541136145942&text=*Hola,*%20*me*%20*quisiera*%20*poner*%20*en*%20*contacto*%20*con*%20*ustedes.*%20*Espero*%20*pronta*%20*respuesta.*&source=&data=&app_absent=" target="_blank"><img src="img/what1.png" alt="" class="estylo contenedormove"></a>
 			<style>
 				.estylo {
 				width: 90px;
@@ -69,11 +70,11 @@
 
 	</article>
 	<article class="info__columna">
-		<a href="cobertura.php"><img src="img/gps.svg" alt="" class="info__img"></a>
+		<a href="cobertura.php"><img src="img/gps.svg" alt="" class="info__img contenedormove"></a>
 		<h2 class="info__titulo"> Seguimiento</h2>
 		<p class="info__txt">Brindando el mayor soporte para el seguimiento de tu producto.</p>
 		<div>
-			<a href="cobertura.php"><img src="img/jugador.png" alt="" class="estylo"></a>
+			<a href="cobertura.php"><img src="img/jugador.png" alt="" class="estylo contenedormove"></a>
 			<style>
 				.estylo {
 				width: 90px;
@@ -86,11 +87,11 @@
 
 	</article>
 	<article class="info__columna">
-		<a href="formulario.php"><img src="img/dolar.svg" alt="" class="info__img"></a>
+		<a href="formulario.php"><img src="img/dolar.svg" alt="" class="info__img contenedormove"></a>
 		<h2 class="info__titulo"> Rentabilidad</h2>
 		<p class="info__txt"> Minimizamos los costos de tu entrega para obtener la mayor rentabilidad.</p>
 		<div>
-			<a href="formulario.php"><img src="img/proteger.svg" alt="" class="estylo"></a>
+			<a href="formulario.php"><img src="img/proteger.svg" alt="" class="estylo contenedormove"></a>
 			<style>
 				.estylo {
 				width: 90px;
@@ -117,5 +118,10 @@
 </footer>
 </div>
 	<script src="js/menu.js"></script>
+	<script>
+        $("#cohete").hide();
+        $("#cohete").show(1400);
+       
+        </script>
 </body>
 </html>

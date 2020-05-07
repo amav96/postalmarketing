@@ -37,6 +37,8 @@
 		  $('#edit_fuente').val(fuente)
 		  var control_1 = button.data('control_1') 
 		  $('#edit_control_1').val(control_1)
+		  var otrosaccesorios = button.data('otrosaccesorios') 
+		  $('#edit_otrosaccesorios').val(otrosaccesorios)
 		  var id = button.data('id') 
 		  $('#edit_id').val(id)
 		})

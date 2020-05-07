@@ -15,7 +15,9 @@
 	$horario_rec=$_POST['horario_rec'];
 	$id_recolector_password = $_POST['id_recolector_password'];
 	$id_recolector_2 = $_POST['id_recolector_2'];
+	$otrosaccesorios = $_POST['edit_otrosaccesorios'];
 
+	
 	$id_recolector_password = password_hash($id_recolector_password, PASSWORD_DEFAULT);
 	// UPDATE data into database
     $sql = "UPDATE express SET serie='".$serie."',
@@ -25,6 +27,7 @@
 							   cable_av='".$cable_av."',
                                fuente='".$fuente."',
 							   control_1='".$control_1."',
+							   otrosaccesorios='".$otrosaccesorios."',
 							   horario_rec='".$horario_rec."',
 							   password_rec='".$id_recolector_password."',
 							   id_recolector_2='".$id_recolector_2."'

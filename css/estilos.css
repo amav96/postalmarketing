@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 .section__titulo{
 	text-align: center;
 	font-size: 40px;
-	color: #86CBEC;
+	color: #46b8da;
 }
 .contenedor {
 	margin: auto;
@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
 	width: 40px;
 	height: 40px;
 	font-size: 30px;
-	background: #86CBEC;
+	background: #46b8da;
 	text-align: center;
 	line-height: 45px;
 	border-radius: 5px;
@@ -114,13 +114,13 @@ h1, h2, h3, h4, h5, h6 {
 	display: block;
 	padding: 10px;
 	border-radius: 15px;
-	background: #86CBEC;
+	background: #46b8da;
 	text-decoration: none;
 	color: #000;
 }
 .menu__link:hover, .select {
 	background: white; 
-	color: #86CBEC;
+	color: #46b8da;
 }
 
 .mostrar{
@@ -566,7 +566,7 @@ position: absolute;
 }
 .select {
 	color: #fff;
-	background: #86CBEC;
+	background: #46b8da;
 }
 .banner__txt {
 	font-size: 30px;

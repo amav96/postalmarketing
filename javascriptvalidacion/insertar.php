@@ -16,6 +16,7 @@ sleep(2);
 	$horario_rec=$_POST['horario_rec'];
 	$adicional=$_POST['adicional'];
 	$id_recolector =$_POST['id_recolector'];
+	$otrosaccesorios =$_POST['otrosaccesorios'];
 	
 $sql1="SELECT identificacion
 FROM express WHERE 
@@ -30,7 +31,7 @@ if($fila==0){
 }
 else {
 	$sql = "INSERT INTO autorizar (id_recolector_2, id_orden, serie, identificacion, cable_hdmi, cable_av, fuente,control_1,estado_rec,horario_rec,
-	adicional) VALUES ('$id_recolector','$id_orden','$serie','$identificacion','$cable_hdmi','$cable_av','$fuente','$control_1','$estado','$horario_rec','$adicional')";
+	adicional,otrosaccesorios) VALUES ('$id_recolector','$id_orden','$serie','$identificacion','$cable_hdmi','$cable_av','$fuente','$control_1','$estado','$horario_rec','$adicional','$otrosaccesorios')";
     $insert = $con->query($sql) or die (mysqli_erno());
     echo 1;
 }
