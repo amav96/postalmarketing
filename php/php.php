@@ -173,7 +173,7 @@ if(isset($_POST['identificacionaee']))
   horario_rec,estado_rec,cable_hdmi,cable_av,fuente,control_1, id_recolector
    FROM express where identificacion='$identificacionae'");
   
-if($identificacionae=$query)
+if($identificacionae=1)
 {
   echo
   "
@@ -237,10 +237,11 @@ echo
 </div>
 
 ";
-}
+} 
 
 include("../cerrar_conexion.php");
 }
+
 //BUSCAR POR NRO ORDEN confirmados PANEL
 if(isset($_POST['ordenaa']))
 {
